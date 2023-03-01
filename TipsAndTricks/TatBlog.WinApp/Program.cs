@@ -32,8 +32,8 @@ foreach (var post in posts)
     Console.WriteLine("Title   : {0}", post.Title);
     Console.WriteLine("View    : {0}", post.ViewCount);
     Console.WriteLine("Date    : {0:MM/dd/yyyy}", post.PostedDate);
-    Console.WriteLine("Author  : {0}", post.Author);
-    Console.WriteLine("Category: {0}", post.Category);
+    Console.WriteLine("Author  : {0}", post.Author.FullName);
+    Console.WriteLine("Category: {0}", post.Category.Name);
     Console.WriteLine("".PadRight(80, '-'));
 }
 
