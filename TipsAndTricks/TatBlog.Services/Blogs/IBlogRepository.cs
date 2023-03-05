@@ -38,5 +38,12 @@ public interface IBlogRepository
 
     Task <IPagedList<TagItem>> GetPagedTagsAsync(IPagingParams pagingParams, 
         CancellationToken cancellationToken = default);
+    Task<Tag> GetTagSlugAsync(string slug, CancellationToken cancellationToken = default);
+    Task<Category> GetCategorySlugAsync(
+    string slug,
+    CancellationToken cancellationToken = default);
 
+    Task<Category> GetCategoryNumerAsync(
+    int id,
+    CancellationToken cancellationToken = default);
 }

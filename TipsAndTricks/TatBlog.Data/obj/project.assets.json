@@ -3196,19 +3196,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\SunnyGold\\.nuget\\packages\\": {}
+    "C:\\Users\\SunnyGolds\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\TipsAndTricks\\TatBlog.Data\\TatBlog.Data.csproj",
+      "projectUniqueName": "D:\\Web_Nang_cao\\github\\2011417_PTUDWNC\\TipsAndTricks\\TatBlog.Data\\TatBlog.Data.csproj",
       "projectName": "TatBlog.Data",
-      "projectPath": "E:\\TipsAndTricks\\TatBlog.Data\\TatBlog.Data.csproj",
-      "packagesPath": "C:\\Users\\SunnyGold\\.nuget\\packages\\",
-      "outputPath": "E:\\TipsAndTricks\\TatBlog.Data\\obj\\",
+      "projectPath": "D:\\Web_Nang_cao\\github\\2011417_PTUDWNC\\TipsAndTricks\\TatBlog.Data\\TatBlog.Data.csproj",
+      "packagesPath": "C:\\Users\\SunnyGolds\\.nuget\\packages\\",
+      "outputPath": "D:\\Web_Nang_cao\\github\\2011417_PTUDWNC\\TipsAndTricks\\TatBlog.Data\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\SunnyGold\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\SunnyGolds\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3222,8 +3222,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "E:\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj": {
-              "projectPath": "E:\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj"
+            "D:\\Web_Nang_cao\\github\\2011417_PTUDWNC\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj": {
+              "projectPath": "D:\\Web_Nang_cao\\github\\2011417_PTUDWNC\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj"
             }
           }
         }
@@ -3263,7 +3263,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200-preview.22628.1\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }

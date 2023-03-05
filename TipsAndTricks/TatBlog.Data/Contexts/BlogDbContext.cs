@@ -20,7 +20,7 @@ public class BlogDbContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         // Bạn phải thay đổi chuỗi kết nối cho phù hợp
-        optionsBuilder.UseSqlServer(@"Server=SUNNYGOLDS; Database=TatBlog; Trusted_Connection=True; Encrypt=False; MultipleActiveResultSets=true");
+        optionsBuilder.UseSqlServer(@"Server=LAPTOP-JAHB9QA2; Database=TatBlog; Trusted_Connection=True; Encrypt=False; MultipleActiveResultSets=true");
     }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

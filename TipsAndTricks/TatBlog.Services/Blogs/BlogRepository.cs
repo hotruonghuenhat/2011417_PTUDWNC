@@ -13,7 +13,8 @@ public class BlogRepository : IBlogRepository
 
     public BlogRepository(BlogDbContext context) => _context = context;
 
-
+    //Tìm bài viết có tên định danh là slug
+    //và được đang vào tháng 'month' năm 'year'
     public async Task<Post> GetPostAsync(
     int year,
     int month,
@@ -65,12 +66,8 @@ public class BlogRepository : IBlogRepository
             cancellationToken);
     }
 
-
     // Lấy danh sách chuyên mục và số lượng bài viết 
     // nằm thuộc từng chuyên mục/chủ đề
-
-
-
     public async Task<IList<CategoryItem>> GetCategoriesAsync(bool showOnMenu = false, CancellationToken cancellationToken = default)
     {
         IQueryable<Category> categories = _context.Set<Category>();
@@ -92,7 +89,6 @@ public class BlogRepository : IBlogRepository
         })
         .ToListAsync(cancellationToken);
     }
-
 
     public async Task<bool> IsPostSlugExistedAsync(int postId,
         string slug,
@@ -119,5 +115,39 @@ public class BlogRepository : IBlogRepository
 
         return await tagQuery
             .ToPagedListAsync(pagingParams, cancellationToken);
+    }
+
+    //Tìm Tag có tên định danh là slug
+    public async Task<Tag> GetTagSlugAsync(
+    string slug,
+    CancellationToken cancellationToken = default)
+    {
+        IQueryable<Tag> tagsQuery = _context.Set<Tag>();
+
+            tagsQuery = tagsQuery.Where(x => x.UrlSlug == slug);
+        return await tagsQuery.FirstOrDefaultAsync(cancellationToken);
+    }
+
+    //Tìm chuyên mục có tên định danh là slug
+    public async Task<Category> GetCategorySlugAsync(
+    string slug,
+    CancellationToken cancellationToken = default)
+    {
+        IQueryable<Category> tagsQuery = _context.Set<Category>();
+
+        tagsQuery = tagsQuery.Where(x => x.UrlSlug == slug);
+        return await tagsQuery.FirstOrDefaultAsync(cancellationToken);
+    }
+
+
+    //Tìm chuyên mục có mã số cho trước
+    public async Task<Category> GetCategoryNumerAsync(
+    int id,
+    CancellationToken cancellationToken = default)
+    {
+        IQueryable<Category> tagsQuery = _context.Set<Category>();
+
+        tagsQuery = tagsQuery.Where(x => x.Id == id);
+        return await tagsQuery.FirstOrDefaultAsync(cancellationToken);
     }
 }

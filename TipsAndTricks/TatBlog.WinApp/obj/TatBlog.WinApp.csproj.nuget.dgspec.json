@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\TipsAndTricks\\TatBlog.WinApp\\TatBlog.WinApp.csproj": {}
+    "D:\\Web_Nang_cao\\github\\2011417_PTUDWNC\\TipsAndTricks\\TatBlog.WinApp\\TatBlog.WinApp.csproj": {}
   },
   "projects": {
-    "E:\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj": {
+    "D:\\Web_Nang_cao\\github\\2011417_PTUDWNC\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj",
+        "projectUniqueName": "D:\\Web_Nang_cao\\github\\2011417_PTUDWNC\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj",
         "projectName": "TatBlog.Core",
-        "projectPath": "E:\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj",
-        "packagesPath": "C:\\Users\\SunnyGold\\.nuget\\packages\\",
-        "outputPath": "E:\\TipsAndTricks\\TatBlog.Core\\obj\\",
+        "projectPath": "D:\\Web_Nang_cao\\github\\2011417_PTUDWNC\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj",
+        "packagesPath": "C:\\Users\\SunnyGolds\\.nuget\\packages\\",
+        "outputPath": "D:\\Web_Nang_cao\\github\\2011417_PTUDWNC\\TipsAndTricks\\TatBlog.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\SunnyGold\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\SunnyGolds\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -55,21 +55,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200-preview.22628.1\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\TipsAndTricks\\TatBlog.Data\\TatBlog.Data.csproj": {
+    "D:\\Web_Nang_cao\\github\\2011417_PTUDWNC\\TipsAndTricks\\TatBlog.Data\\TatBlog.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\TipsAndTricks\\TatBlog.Data\\TatBlog.Data.csproj",
+        "projectUniqueName": "D:\\Web_Nang_cao\\github\\2011417_PTUDWNC\\TipsAndTricks\\TatBlog.Data\\TatBlog.Data.csproj",
         "projectName": "TatBlog.Data",
-        "projectPath": "E:\\TipsAndTricks\\TatBlog.Data\\TatBlog.Data.csproj",
-        "packagesPath": "C:\\Users\\SunnyGold\\.nuget\\packages\\",
-        "outputPath": "E:\\TipsAndTricks\\TatBlog.Data\\obj\\",
+        "projectPath": "D:\\Web_Nang_cao\\github\\2011417_PTUDWNC\\TipsAndTricks\\TatBlog.Data\\TatBlog.Data.csproj",
+        "packagesPath": "C:\\Users\\SunnyGolds\\.nuget\\packages\\",
+        "outputPath": "D:\\Web_Nang_cao\\github\\2011417_PTUDWNC\\TipsAndTricks\\TatBlog.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\SunnyGold\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\SunnyGolds\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -83,8 +83,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "E:\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj": {
-                "projectPath": "E:\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj"
+              "D:\\Web_Nang_cao\\github\\2011417_PTUDWNC\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj": {
+                "projectPath": "D:\\Web_Nang_cao\\github\\2011417_PTUDWNC\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj"
               }
             }
           }
@@ -124,21 +124,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200-preview.22628.1\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\TipsAndTricks\\TatBlog.Services\\TatBlog.Services.csproj": {
+    "D:\\Web_Nang_cao\\github\\2011417_PTUDWNC\\TipsAndTricks\\TatBlog.Services\\TatBlog.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\TipsAndTricks\\TatBlog.Services\\TatBlog.Services.csproj",
+        "projectUniqueName": "D:\\Web_Nang_cao\\github\\2011417_PTUDWNC\\TipsAndTricks\\TatBlog.Services\\TatBlog.Services.csproj",
         "projectName": "TatBlog.Services",
-        "projectPath": "E:\\TipsAndTricks\\TatBlog.Services\\TatBlog.Services.csproj",
-        "packagesPath": "C:\\Users\\SunnyGold\\.nuget\\packages\\",
-        "outputPath": "E:\\TipsAndTricks\\TatBlog.Services\\obj\\",
+        "projectPath": "D:\\Web_Nang_cao\\github\\2011417_PTUDWNC\\TipsAndTricks\\TatBlog.Services\\TatBlog.Services.csproj",
+        "packagesPath": "C:\\Users\\SunnyGolds\\.nuget\\packages\\",
+        "outputPath": "D:\\Web_Nang_cao\\github\\2011417_PTUDWNC\\TipsAndTricks\\TatBlog.Services\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\SunnyGold\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\SunnyGolds\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -152,11 +152,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "E:\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj": {
-                "projectPath": "E:\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj"
+              "D:\\Web_Nang_cao\\github\\2011417_PTUDWNC\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj": {
+                "projectPath": "D:\\Web_Nang_cao\\github\\2011417_PTUDWNC\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj"
               },
-              "E:\\TipsAndTricks\\TatBlog.Data\\TatBlog.Data.csproj": {
-                "projectPath": "E:\\TipsAndTricks\\TatBlog.Data\\TatBlog.Data.csproj"
+              "D:\\Web_Nang_cao\\github\\2011417_PTUDWNC\\TipsAndTricks\\TatBlog.Data\\TatBlog.Data.csproj": {
+                "projectPath": "D:\\Web_Nang_cao\\github\\2011417_PTUDWNC\\TipsAndTricks\\TatBlog.Data\\TatBlog.Data.csproj"
               }
             }
           }
@@ -192,21 +192,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200-preview.22628.1\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\TipsAndTricks\\TatBlog.WinApp\\TatBlog.WinApp.csproj": {
+    "D:\\Web_Nang_cao\\github\\2011417_PTUDWNC\\TipsAndTricks\\TatBlog.WinApp\\TatBlog.WinApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\TipsAndTricks\\TatBlog.WinApp\\TatBlog.WinApp.csproj",
+        "projectUniqueName": "D:\\Web_Nang_cao\\github\\2011417_PTUDWNC\\TipsAndTricks\\TatBlog.WinApp\\TatBlog.WinApp.csproj",
         "projectName": "TatBlog.WinApp",
-        "projectPath": "E:\\TipsAndTricks\\TatBlog.WinApp\\TatBlog.WinApp.csproj",
-        "packagesPath": "C:\\Users\\SunnyGold\\.nuget\\packages\\",
-        "outputPath": "E:\\TipsAndTricks\\TatBlog.WinApp\\obj\\",
+        "projectPath": "D:\\Web_Nang_cao\\github\\2011417_PTUDWNC\\TipsAndTricks\\TatBlog.WinApp\\TatBlog.WinApp.csproj",
+        "packagesPath": "C:\\Users\\SunnyGolds\\.nuget\\packages\\",
+        "outputPath": "D:\\Web_Nang_cao\\github\\2011417_PTUDWNC\\TipsAndTricks\\TatBlog.WinApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\SunnyGold\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\SunnyGolds\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -220,14 +220,14 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "E:\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj": {
-                "projectPath": "E:\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj"
+              "D:\\Web_Nang_cao\\github\\2011417_PTUDWNC\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj": {
+                "projectPath": "D:\\Web_Nang_cao\\github\\2011417_PTUDWNC\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj"
               },
-              "E:\\TipsAndTricks\\TatBlog.Data\\TatBlog.Data.csproj": {
-                "projectPath": "E:\\TipsAndTricks\\TatBlog.Data\\TatBlog.Data.csproj"
+              "D:\\Web_Nang_cao\\github\\2011417_PTUDWNC\\TipsAndTricks\\TatBlog.Data\\TatBlog.Data.csproj": {
+                "projectPath": "D:\\Web_Nang_cao\\github\\2011417_PTUDWNC\\TipsAndTricks\\TatBlog.Data\\TatBlog.Data.csproj"
               },
-              "E:\\TipsAndTricks\\TatBlog.Services\\TatBlog.Services.csproj": {
-                "projectPath": "E:\\TipsAndTricks\\TatBlog.Services\\TatBlog.Services.csproj"
+              "D:\\Web_Nang_cao\\github\\2011417_PTUDWNC\\TipsAndTricks\\TatBlog.Services\\TatBlog.Services.csproj": {
+                "projectPath": "D:\\Web_Nang_cao\\github\\2011417_PTUDWNC\\TipsAndTricks\\TatBlog.Services\\TatBlog.Services.csproj"
               }
             }
           }
@@ -265,7 +265,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200-preview.22628.1\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -58,3 +58,15 @@ E:\TipsAndTricks\TatBlog.Core\obj\Debug\net7.0\TatBlog.Core.dll
 E:\TipsAndTricks\TatBlog.Core\obj\Debug\net7.0\refint\TatBlog.Core.dll
 E:\TipsAndTricks\TatBlog.Core\obj\Debug\net7.0\TatBlog.Core.pdb
 E:\TipsAndTricks\TatBlog.Core\obj\Debug\net7.0\ref\TatBlog.Core.dll
+C:\Users\SunnyGolds\Downloads\2011417_PTUDWNC-main\2011417_PTUDWNC-main\TipsAndTricks\TatBlog.Core\bin\Debug\net7.0\TatBlog.Core.deps.json
+C:\Users\SunnyGolds\Downloads\2011417_PTUDWNC-main\2011417_PTUDWNC-main\TipsAndTricks\TatBlog.Core\bin\Debug\net7.0\TatBlog.Core.dll
+C:\Users\SunnyGolds\Downloads\2011417_PTUDWNC-main\2011417_PTUDWNC-main\TipsAndTricks\TatBlog.Core\bin\Debug\net7.0\TatBlog.Core.pdb
+C:\Users\SunnyGolds\Downloads\2011417_PTUDWNC-main\2011417_PTUDWNC-main\TipsAndTricks\TatBlog.Core\obj\Debug\net7.0\TatBlog.Core.csproj.AssemblyReference.cache
+C:\Users\SunnyGolds\Downloads\2011417_PTUDWNC-main\2011417_PTUDWNC-main\TipsAndTricks\TatBlog.Core\obj\Debug\net7.0\TatBlog.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\SunnyGolds\Downloads\2011417_PTUDWNC-main\2011417_PTUDWNC-main\TipsAndTricks\TatBlog.Core\obj\Debug\net7.0\TatBlog.Core.AssemblyInfoInputs.cache
+C:\Users\SunnyGolds\Downloads\2011417_PTUDWNC-main\2011417_PTUDWNC-main\TipsAndTricks\TatBlog.Core\obj\Debug\net7.0\TatBlog.Core.AssemblyInfo.cs
+C:\Users\SunnyGolds\Downloads\2011417_PTUDWNC-main\2011417_PTUDWNC-main\TipsAndTricks\TatBlog.Core\obj\Debug\net7.0\TatBlog.Core.csproj.CoreCompileInputs.cache
+C:\Users\SunnyGolds\Downloads\2011417_PTUDWNC-main\2011417_PTUDWNC-main\TipsAndTricks\TatBlog.Core\obj\Debug\net7.0\TatBlog.Core.dll
+C:\Users\SunnyGolds\Downloads\2011417_PTUDWNC-main\2011417_PTUDWNC-main\TipsAndTricks\TatBlog.Core\obj\Debug\net7.0\refint\TatBlog.Core.dll
+C:\Users\SunnyGolds\Downloads\2011417_PTUDWNC-main\2011417_PTUDWNC-main\TipsAndTricks\TatBlog.Core\obj\Debug\net7.0\TatBlog.Core.pdb
+C:\Users\SunnyGolds\Downloads\2011417_PTUDWNC-main\2011417_PTUDWNC-main\TipsAndTricks\TatBlog.Core\obj\Debug\net7.0\ref\TatBlog.Core.dll
