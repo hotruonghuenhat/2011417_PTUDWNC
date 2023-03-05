@@ -73,6 +73,7 @@ E:\TipsAndTricks\TatBlog.Data\obj\Debug\net7.0\TatBlog.Data.dll
 E:\TipsAndTricks\TatBlog.Data\obj\Debug\net7.0\refint\TatBlog.Data.dll
 E:\TipsAndTricks\TatBlog.Data\obj\Debug\net7.0\TatBlog.Data.pdb
 E:\TipsAndTricks\TatBlog.Data\obj\Debug\net7.0\ref\TatBlog.Data.dll
+<<<<<<< HEAD
 C:\Users\SunnyGolds\Downloads\2011417_PTUDWNC-main\2011417_PTUDWNC-main\TipsAndTricks\TatBlog.Data\bin\Debug\net7.0\TatBlog.Data.deps.json
 C:\Users\SunnyGolds\Downloads\2011417_PTUDWNC-main\2011417_PTUDWNC-main\TipsAndTricks\TatBlog.Data\bin\Debug\net7.0\TatBlog.Data.dll
 C:\Users\SunnyGolds\Downloads\2011417_PTUDWNC-main\2011417_PTUDWNC-main\TipsAndTricks\TatBlog.Data\bin\Debug\net7.0\TatBlog.Data.pdb
@@ -88,3 +89,20 @@ C:\Users\SunnyGolds\Downloads\2011417_PTUDWNC-main\2011417_PTUDWNC-main\TipsAndT
 C:\Users\SunnyGolds\Downloads\2011417_PTUDWNC-main\2011417_PTUDWNC-main\TipsAndTricks\TatBlog.Data\obj\Debug\net7.0\refint\TatBlog.Data.dll
 C:\Users\SunnyGolds\Downloads\2011417_PTUDWNC-main\2011417_PTUDWNC-main\TipsAndTricks\TatBlog.Data\obj\Debug\net7.0\TatBlog.Data.pdb
 C:\Users\SunnyGolds\Downloads\2011417_PTUDWNC-main\2011417_PTUDWNC-main\TipsAndTricks\TatBlog.Data\obj\Debug\net7.0\ref\TatBlog.Data.dll
+=======
+E:\2011417_PTUDWNC\TipsAndTricks\TatBlog.Data\bin\Debug\net7.0\TatBlog.Data.deps.json
+E:\2011417_PTUDWNC\TipsAndTricks\TatBlog.Data\bin\Debug\net7.0\TatBlog.Data.dll
+E:\2011417_PTUDWNC\TipsAndTricks\TatBlog.Data\bin\Debug\net7.0\TatBlog.Data.pdb
+E:\2011417_PTUDWNC\TipsAndTricks\TatBlog.Data\bin\Debug\net7.0\TatBlog.Core.dll
+E:\2011417_PTUDWNC\TipsAndTricks\TatBlog.Data\bin\Debug\net7.0\TatBlog.Core.pdb
+E:\2011417_PTUDWNC\TipsAndTricks\TatBlog.Data\obj\Debug\net7.0\TatBlog.Data.csproj.AssemblyReference.cache
+E:\2011417_PTUDWNC\TipsAndTricks\TatBlog.Data\obj\Debug\net7.0\TatBlog.Data.GeneratedMSBuildEditorConfig.editorconfig
+E:\2011417_PTUDWNC\TipsAndTricks\TatBlog.Data\obj\Debug\net7.0\TatBlog.Data.AssemblyInfoInputs.cache
+E:\2011417_PTUDWNC\TipsAndTricks\TatBlog.Data\obj\Debug\net7.0\TatBlog.Data.AssemblyInfo.cs
+E:\2011417_PTUDWNC\TipsAndTricks\TatBlog.Data\obj\Debug\net7.0\TatBlog.Data.csproj.CoreCompileInputs.cache
+E:\2011417_PTUDWNC\TipsAndTricks\TatBlog.Data\obj\Debug\net7.0\TatBlog.Data.csproj.CopyComplete
+E:\2011417_PTUDWNC\TipsAndTricks\TatBlog.Data\obj\Debug\net7.0\TatBlog.Data.dll
+E:\2011417_PTUDWNC\TipsAndTricks\TatBlog.Data\obj\Debug\net7.0\refint\TatBlog.Data.dll
+E:\2011417_PTUDWNC\TipsAndTricks\TatBlog.Data\obj\Debug\net7.0\TatBlog.Data.pdb
+E:\2011417_PTUDWNC\TipsAndTricks\TatBlog.Data\obj\Debug\net7.0\ref\TatBlog.Data.dll
+>>>>>>> c46f2fe8070476ccbf5adb4042eb1e160e987521

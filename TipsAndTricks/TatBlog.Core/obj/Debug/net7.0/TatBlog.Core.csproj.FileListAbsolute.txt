@@ -58,6 +58,7 @@ E:\TipsAndTricks\TatBlog.Core\obj\Debug\net7.0\TatBlog.Core.dll
 E:\TipsAndTricks\TatBlog.Core\obj\Debug\net7.0\refint\TatBlog.Core.dll
 E:\TipsAndTricks\TatBlog.Core\obj\Debug\net7.0\TatBlog.Core.pdb
 E:\TipsAndTricks\TatBlog.Core\obj\Debug\net7.0\ref\TatBlog.Core.dll
+<<<<<<< HEAD
 C:\Users\SunnyGolds\Downloads\2011417_PTUDWNC-main\2011417_PTUDWNC-main\TipsAndTricks\TatBlog.Core\bin\Debug\net7.0\TatBlog.Core.deps.json
 C:\Users\SunnyGolds\Downloads\2011417_PTUDWNC-main\2011417_PTUDWNC-main\TipsAndTricks\TatBlog.Core\bin\Debug\net7.0\TatBlog.Core.dll
 C:\Users\SunnyGolds\Downloads\2011417_PTUDWNC-main\2011417_PTUDWNC-main\TipsAndTricks\TatBlog.Core\bin\Debug\net7.0\TatBlog.Core.pdb
@@ -70,3 +71,17 @@ C:\Users\SunnyGolds\Downloads\2011417_PTUDWNC-main\2011417_PTUDWNC-main\TipsAndT
 C:\Users\SunnyGolds\Downloads\2011417_PTUDWNC-main\2011417_PTUDWNC-main\TipsAndTricks\TatBlog.Core\obj\Debug\net7.0\refint\TatBlog.Core.dll
 C:\Users\SunnyGolds\Downloads\2011417_PTUDWNC-main\2011417_PTUDWNC-main\TipsAndTricks\TatBlog.Core\obj\Debug\net7.0\TatBlog.Core.pdb
 C:\Users\SunnyGolds\Downloads\2011417_PTUDWNC-main\2011417_PTUDWNC-main\TipsAndTricks\TatBlog.Core\obj\Debug\net7.0\ref\TatBlog.Core.dll
+=======
+E:\2011417_PTUDWNC\TipsAndTricks\TatBlog.Core\bin\Debug\net7.0\TatBlog.Core.deps.json
+E:\2011417_PTUDWNC\TipsAndTricks\TatBlog.Core\bin\Debug\net7.0\TatBlog.Core.dll
+E:\2011417_PTUDWNC\TipsAndTricks\TatBlog.Core\bin\Debug\net7.0\TatBlog.Core.pdb
+E:\2011417_PTUDWNC\TipsAndTricks\TatBlog.Core\obj\Debug\net7.0\TatBlog.Core.csproj.AssemblyReference.cache
+E:\2011417_PTUDWNC\TipsAndTricks\TatBlog.Core\obj\Debug\net7.0\TatBlog.Core.GeneratedMSBuildEditorConfig.editorconfig
+E:\2011417_PTUDWNC\TipsAndTricks\TatBlog.Core\obj\Debug\net7.0\TatBlog.Core.AssemblyInfoInputs.cache
+E:\2011417_PTUDWNC\TipsAndTricks\TatBlog.Core\obj\Debug\net7.0\TatBlog.Core.AssemblyInfo.cs
+E:\2011417_PTUDWNC\TipsAndTricks\TatBlog.Core\obj\Debug\net7.0\TatBlog.Core.csproj.CoreCompileInputs.cache
+E:\2011417_PTUDWNC\TipsAndTricks\TatBlog.Core\obj\Debug\net7.0\TatBlog.Core.dll
+E:\2011417_PTUDWNC\TipsAndTricks\TatBlog.Core\obj\Debug\net7.0\refint\TatBlog.Core.dll
+E:\2011417_PTUDWNC\TipsAndTricks\TatBlog.Core\obj\Debug\net7.0\TatBlog.Core.pdb
+E:\2011417_PTUDWNC\TipsAndTricks\TatBlog.Core\obj\Debug\net7.0\ref\TatBlog.Core.dll
+>>>>>>> c46f2fe8070476ccbf5adb4042eb1e160e987521
