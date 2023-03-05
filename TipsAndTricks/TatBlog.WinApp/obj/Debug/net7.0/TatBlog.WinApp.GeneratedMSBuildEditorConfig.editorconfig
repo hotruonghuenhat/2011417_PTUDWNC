@@ -8,8 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = TatBlog.WinApp
-<<<<<<< HEAD
 build_property.ProjectDir = D:\Web_Nang_cao\github\2011417_PTUDWNC\TipsAndTricks\TatBlog.WinApp\
-=======
-build_property.ProjectDir = E:\2011417_PTUDWNC\TipsAndTricks\TatBlog.WinApp\
->>>>>>> c46f2fe8070476ccbf5adb4042eb1e160e987521

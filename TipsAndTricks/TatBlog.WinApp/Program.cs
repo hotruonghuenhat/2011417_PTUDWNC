@@ -23,20 +23,20 @@ var pagingParams = new PagingParams
     SortOrder = "DESC"
 };
 
-////tìm 3 bài viết được xem và đọc nhiều nhất
-//var posts = await blogRepo.GetPopularArticlesAsync(3);
+//tìm 3 bài viết được xem và đọc nhiều nhất
+var posts = await blogRepo.GetPopularArticlesAsync(3);
 
-////Xuất danh sách bài viết ra màn hình
-//foreach (var post in posts)
-//{
-//    Console.WriteLine("ID      : {0}", post.Id);
-//    Console.WriteLine("Title   : {0}", post.Title);
-//    Console.WriteLine("View    : {0}", post.ViewCount);
-//    Console.WriteLine("Date    : {0:MM/dd/yyyy}", post.PostedDate);
-//    Console.WriteLine("Author  : {0}", post.Author);
-//    Console.WriteLine("Category: {0}", post.Category);
-//    Console.WriteLine("".PadRight(80, '-'));
-//}
+//Xuất danh sách bài viết ra màn hình
+foreach (var post in posts)
+{
+    Console.WriteLine("ID      : {0}", post.Id);
+    Console.WriteLine("Title   : {0}", post.Title);
+    Console.WriteLine("View    : {0}", post.ViewCount);
+    Console.WriteLine("Date    : {0:MM/dd/yyyy}", post.PostedDate);
+    Console.WriteLine("Author  : {0}", post.Author);
+    Console.WriteLine("Category: {0}", post.Category);
+    Console.WriteLine("".PadRight(80, '-'));
+}
 
 ////đọc danh sách tác giả từ CSDL
 //var authors = context.Authors.ToList();
@@ -53,6 +53,7 @@ var pagingParams = new PagingParams
 
 //Console.WriteLine("".PadRight(80, '-'));
 
+//xuất danh sách thẻ ra màn hình
 //var tagsList = context.Tags.ToList();
 
 ////xuất danh sách tag ra màn hình
@@ -65,6 +66,7 @@ var pagingParams = new PagingParams
 //        item.Id, item.Name);
 //}
 
+//1a tìm một thẻ theo tên đinh danh (slug)
 //var tagsSlugList = await blogRepo.GetTagSlugAsync("google-applications");
 
 ////xuất danh sách tag ra màn hình
@@ -73,8 +75,19 @@ var pagingParams = new PagingParams
 //Console.WriteLine("{0,-5}{1,-50}",
 //    tagsSlugList.Id, tagsSlugList.Name);
 
+////1c xuất danh sách tag và số lượng bài viết chứa của tag
+//var tagspost = await blogRepo.GetPagedTagsAsync(pagingParams);
 
+//Console.WriteLine("{0,-4}{1,-30}{2,-30}{3,12}",
+//    "ID", "Name", "Description", "PostCount");
 
+//foreach (var tag in tagspost)
+//{
+//    Console.WriteLine("{0,-4}{1,-30}{2,-30}{3,12}",
+//        tag.Id, tag.Name, tag.Description, tag.PostCount);
+//}
+
+//1e tìm một chuyên mục theo tên định danh(slug)
 //var categorySlugList = await blogRepo.GetTagSlugAsync("google-applications");
 
 ////xuất danh sách tag ra màn hình
@@ -83,11 +96,13 @@ var pagingParams = new PagingParams
 //Console.WriteLine("{0,-5}{1,-50}",
 //    categorySlugList.Id, categorySlugList.Name);
 
+////1f tìm một chuyên mục theo mã số cho trước
+//var categoryNumberList = await blogRepo.GetCategoryIdAsync(3);
 
-var categoryNumberList = await blogRepo.GetCategoryNumerAsync(3);
+////xuất danh sách tag ra màn hình
+//Console.WriteLine("{0,-5}{1,-50}",
+//    "ID", "Name");
+//Console.WriteLine("{0,-5}{1,-50}",
+//    categoryNumberList.Id, categoryNumberList.Name);
 
-//xuất danh sách tag ra màn hình
-Console.WriteLine("{0,-5}{1,-50}",
-    "ID", "Name");
-Console.WriteLine("{0,-5}{1,-50}",
-    categoryNumberList.Id, categoryNumberList.Name);
+//1l tìm một bài viết theo mã số

@@ -1,14 +1,15 @@
 {
   "version": 2,
-<<<<<<< HEAD
   "dgSpecHash": "q0Ysx+HsnTvhYB92iw0MadJGAMFSG/pRtQt6QaBRDxl9SbOVr8N2orMbSTbb5017CYISYqK0Y0voiKfaU22xVg==",
   "success": true,
   "projectFilePath": "D:\\Web_Nang_cao\\github\\2011417_PTUDWNC\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj",
-=======
-  "dgSpecHash": "76FsnBj18toc/CqNJ96U2YEn+8pZr7mecGRV+rrI/iEcCa2LbqR5VO8tTNlwHelLqyiFGePbhnGPAhBEHVybSw==",
-  "success": true,
-  "projectFilePath": "E:\\2011417_PTUDWNC\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj",
->>>>>>> c46f2fe8070476ccbf5adb4042eb1e160e987521
   "expectedPackageFiles": [],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file D:\\Web_Nang_cao\\github\\2011417_PTUDWNC\\TipsAndTricks\\TatBlog.Core\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

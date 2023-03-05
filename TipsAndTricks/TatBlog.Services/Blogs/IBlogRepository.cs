@@ -43,7 +43,15 @@ public interface IBlogRepository
     string slug,
     CancellationToken cancellationToken = default);
 
-    Task<Category> GetCategoryNumerAsync(
+    Task<Category> GetCategoryIdAsync(
+    int id,
+    CancellationToken cancellationToken = default);
+
+    Task<Tag> RemoveTagAsync(
+    int id,
+    CancellationToken cancellationToken = default);
+
+    Task<Post> GetPostsIdAsync(
     int id,
     CancellationToken cancellationToken = default);
 }

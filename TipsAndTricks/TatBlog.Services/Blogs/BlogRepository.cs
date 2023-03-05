@@ -128,6 +128,18 @@ public class BlogRepository : IBlogRepository
         return await tagsQuery.FirstOrDefaultAsync(cancellationToken);
     }
 
+    //xóa 1 tag theo mã cho trước
+    public async Task<Tag> RemoveTagAsync(
+    int id,
+    CancellationToken cancellationToken = default)
+    {
+        IQueryable<Tag> tagsQuery = _context.Set<Tag>();
+
+        tagsQuery = tagsQuery.OrderBy(x => x.Id == id);
+                
+        return await tagsQuery.FirstOrDefaultAsync(cancellationToken);
+    }
+
     //Tìm chuyên mục có tên định danh là slug
     public async Task<Category> GetCategorySlugAsync(
     string slug,
@@ -141,7 +153,7 @@ public class BlogRepository : IBlogRepository
 
 
     //Tìm chuyên mục có mã số cho trước
-    public async Task<Category> GetCategoryNumerAsync(
+    public async Task<Category> GetCategoryIdAsync(
     int id,
     CancellationToken cancellationToken = default)
     {
@@ -149,5 +161,16 @@ public class BlogRepository : IBlogRepository
 
         tagsQuery = tagsQuery.Where(x => x.Id == id);
         return await tagsQuery.FirstOrDefaultAsync(cancellationToken);
+    }
+
+    //Tìm chuyên mục có mã số cho trước
+    public async Task<Post> GetPostsIdAsync(
+    int id,
+    CancellationToken cancellationToken = default)
+    {
+        IQueryable<Post> postsQuery = _context.Set<Post>();
+
+        postsQuery = postsQuery.Where(x => x.Id == id);
+        return await postsQuery.FirstOrDefaultAsync(cancellationToken);
     }
 }

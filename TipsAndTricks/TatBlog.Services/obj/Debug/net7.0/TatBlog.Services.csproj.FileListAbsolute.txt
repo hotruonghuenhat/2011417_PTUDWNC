@@ -120,3 +120,20 @@ E:\2011417_PTUDWNC\TipsAndTricks\TatBlog.Services\obj\Debug\net7.0\refint\TatBlo
 E:\2011417_PTUDWNC\TipsAndTricks\TatBlog.Services\obj\Debug\net7.0\TatBlog.Services.pdb
 E:\2011417_PTUDWNC\TipsAndTricks\TatBlog.Services\obj\Debug\net7.0\ref\TatBlog.Services.dll
 >>>>>>> c46f2fe8070476ccbf5adb4042eb1e160e987521
+D:\Web_Nang_cao\github\2011417_PTUDWNC\TipsAndTricks\TatBlog.Services\bin\Debug\net7.0\TatBlog.Services.deps.json
+D:\Web_Nang_cao\github\2011417_PTUDWNC\TipsAndTricks\TatBlog.Services\bin\Debug\net7.0\TatBlog.Services.dll
+D:\Web_Nang_cao\github\2011417_PTUDWNC\TipsAndTricks\TatBlog.Services\bin\Debug\net7.0\TatBlog.Services.pdb
+D:\Web_Nang_cao\github\2011417_PTUDWNC\TipsAndTricks\TatBlog.Services\bin\Debug\net7.0\TatBlog.Core.dll
+D:\Web_Nang_cao\github\2011417_PTUDWNC\TipsAndTricks\TatBlog.Services\bin\Debug\net7.0\TatBlog.Data.dll
+D:\Web_Nang_cao\github\2011417_PTUDWNC\TipsAndTricks\TatBlog.Services\bin\Debug\net7.0\TatBlog.Core.pdb
+D:\Web_Nang_cao\github\2011417_PTUDWNC\TipsAndTricks\TatBlog.Services\bin\Debug\net7.0\TatBlog.Data.pdb
+D:\Web_Nang_cao\github\2011417_PTUDWNC\TipsAndTricks\TatBlog.Services\obj\Debug\net7.0\TatBlog.Services.csproj.AssemblyReference.cache
+D:\Web_Nang_cao\github\2011417_PTUDWNC\TipsAndTricks\TatBlog.Services\obj\Debug\net7.0\TatBlog.Services.GeneratedMSBuildEditorConfig.editorconfig
+D:\Web_Nang_cao\github\2011417_PTUDWNC\TipsAndTricks\TatBlog.Services\obj\Debug\net7.0\TatBlog.Services.AssemblyInfoInputs.cache
+D:\Web_Nang_cao\github\2011417_PTUDWNC\TipsAndTricks\TatBlog.Services\obj\Debug\net7.0\TatBlog.Services.AssemblyInfo.cs
+D:\Web_Nang_cao\github\2011417_PTUDWNC\TipsAndTricks\TatBlog.Services\obj\Debug\net7.0\TatBlog.Services.csproj.CoreCompileInputs.cache
+D:\Web_Nang_cao\github\2011417_PTUDWNC\TipsAndTricks\TatBlog.Services\obj\Debug\net7.0\TatBlog.Services.csproj.CopyComplete
+D:\Web_Nang_cao\github\2011417_PTUDWNC\TipsAndTricks\TatBlog.Services\obj\Debug\net7.0\TatBlog.Services.dll
+D:\Web_Nang_cao\github\2011417_PTUDWNC\TipsAndTricks\TatBlog.Services\obj\Debug\net7.0\refint\TatBlog.Services.dll
+D:\Web_Nang_cao\github\2011417_PTUDWNC\TipsAndTricks\TatBlog.Services\obj\Debug\net7.0\TatBlog.Services.pdb
+D:\Web_Nang_cao\github\2011417_PTUDWNC\TipsAndTricks\TatBlog.Services\obj\Debug\net7.0\ref\TatBlog.Services.dll

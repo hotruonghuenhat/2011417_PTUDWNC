@@ -1,7 +1,6 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
     "D:\\Web_Nang_cao\\github\\2011417_PTUDWNC\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj": {}
   },
   "projects": {
@@ -13,19 +12,6 @@
         "projectPath": "D:\\Web_Nang_cao\\github\\2011417_PTUDWNC\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj",
         "packagesPath": "C:\\Users\\SunnyGolds\\.nuget\\packages\\",
         "outputPath": "D:\\Web_Nang_cao\\github\\2011417_PTUDWNC\\TipsAndTricks\\TatBlog.Core\\obj\\",
-=======
-    "E:\\2011417_PTUDWNC\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj": {}
-  },
-  "projects": {
-    "E:\\2011417_PTUDWNC\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "E:\\2011417_PTUDWNC\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj",
-        "projectName": "TatBlog.Core",
-        "projectPath": "E:\\2011417_PTUDWNC\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj",
-        "packagesPath": "C:\\Users\\SunnyGold\\.nuget\\packages\\",
-        "outputPath": "E:\\2011417_PTUDWNC\\TipsAndTricks\\TatBlog.Core\\obj\\",
->>>>>>> c46f2fe8070476ccbf5adb4042eb1e160e987521
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\SunnyGolds\\AppData\\Roaming\\NuGet\\NuGet.Config",

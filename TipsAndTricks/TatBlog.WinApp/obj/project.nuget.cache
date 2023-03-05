@@ -1,14 +1,8 @@
 {
   "version": 2,
-<<<<<<< HEAD
   "dgSpecHash": "LpYY+PWsq+EBUUcWEXcwZ+CdSQ2aOjafBKw3NsxKmosOgoVzBeCltjGd9OLCmN3IX9YUdRw4p/XeMEe/xNcFbA==",
   "success": true,
   "projectFilePath": "D:\\Web_Nang_cao\\github\\2011417_PTUDWNC\\TipsAndTricks\\TatBlog.WinApp\\TatBlog.WinApp.csproj",
-=======
-  "dgSpecHash": "NNVo3GsiDH2PKZZkt2QYzucgWHeE1mRKdMbcMqZSPqABXaYODz3McaVTi7EHFrtQIawoDQlWQeP7em9z2fd5wQ==",
-  "success": true,
-  "projectFilePath": "E:\\2011417_PTUDWNC\\TipsAndTricks\\TatBlog.WinApp\\TatBlog.WinApp.csproj",
->>>>>>> c46f2fe8070476ccbf5adb4042eb1e160e987521
   "expectedPackageFiles": [
     "C:\\Users\\SunnyGolds\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\SunnyGolds\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
@@ -79,5 +73,12 @@
     "C:\\Users\\SunnyGolds\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\SunnyGolds\\.nuget\\packages\\system.windows.extensions\\5.0.0\\system.windows.extensions.5.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file D:\\Web_Nang_cao\\github\\2011417_PTUDWNC\\TipsAndTricks\\TatBlog.WinApp\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
