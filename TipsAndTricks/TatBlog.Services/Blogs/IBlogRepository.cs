@@ -54,4 +54,7 @@ public interface IBlogRepository
     Task<Post> GetPostsIdAsync(
     int id,
     CancellationToken cancellationToken = default);
+
+    Task<bool> IsCategoryExistSlugAsync(string slug, CancellationToken cancellationToken = default);
+    Task<bool> DeleteCategoryWithSlugAsync(string slug, CancellationToken cancellationToken);
 }

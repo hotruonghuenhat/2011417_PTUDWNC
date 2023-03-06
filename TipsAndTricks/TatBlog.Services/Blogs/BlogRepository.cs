@@ -173,4 +173,35 @@ public class BlogRepository : IBlogRepository
         postsQuery = postsQuery.Where(x => x.Id == id);
         return await postsQuery.FirstOrDefaultAsync(cancellationToken);
     }
+
+    //Xoa Category theo Slug
+    public async Task<bool> DeleteCategoryWithSlugAsync(string slug, CancellationToken cancellationToken)
+    {
+        var categoryDelete = await _context.Set<Category>()
+            .Where(c => c.UrlSlug == slug).FirstOrDefaultAsync(cancellationToken);
+        if (categoryDelete == null)
+        {
+            return false;
+        }
+        else
+        {
+            _context.Set<Category>().Remove(categoryDelete);
+            return true;
+        }
+    }
+
+    //Kiem tra Category da ton tai voi dinh danh slug hay chua
+    public async Task<bool> IsCategoryExistSlugAsync(string slug, CancellationToken cancellationToken = default)
+    {
+        var categoryExist = await _context.Set<Category>()
+            .Where(c => c.UrlSlug == slug).FirstOrDefaultAsync(cancellationToken);
+        if (categoryExist == null)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
 }
