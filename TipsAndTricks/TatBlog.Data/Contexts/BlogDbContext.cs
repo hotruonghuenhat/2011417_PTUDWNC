@@ -17,11 +17,9 @@ public class BlogDbContext : DbContext
     public DbSet<Post> Posts { get; set; }
     public DbSet<Tag> Tags { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        // Bạn phải thay đổi chuỗi kết nối cho phù hợp
-        optionsBuilder.UseSqlServer(@"Server=LAPTOP-JAHB9QA2; Database=TatBlog; Trusted_Connection=True; Encrypt=False; MultipleActiveResultSets=true");
-    }
+    public BlogDbContext(DbContextOptions<BlogDbContext> options)
+        : base(options)
+        { }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(CategoryMap).Assembly);

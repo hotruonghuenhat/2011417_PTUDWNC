@@ -7,54 +7,47 @@ using TatBlog.Core.Contracts;
 using TatBlog.Core.DTO;
 using TatBlog.Core.Entities;
 
-namespace TatBlog.Services.Blogs;
+namespace TatBlog.Services.Blogs {
+    public interface IBlogRepository {
 
-public interface IBlogRepository
-{
-    // Tìm bài viết có tên định danh là 'slug' 
-    // và được đăng vào tháng 'month' năm 'year'
-    Task<Post> GetPostAsync(
-    int year,
-    int month,
-    string slug,
-    CancellationToken cancellationToken = default);
-
-    // Tìm Top N bài viết phổ được nhiều người xem nhất 
-    Task<IList<Post>> GetPopularArticlesAsync(
-    int numPosts,
-    CancellationToken cancellationToken = default);
-
-    // Kiểm tra xem tên định danh của bài viết đã có hay chưa
-    Task<bool> IsPostSlugExistedAsync(int postId, string slug,
-    CancellationToken cancellationToken = default);
-
-    // Tăng số lượt xem của một bài viết
-    Task IncreaseViewCountAsync(
-    int postId,
-    CancellationToken cancellationToken = default);
-
-    Task<IList<CategoryItem>> GetCategoriesAsync(bool showOnMenu = false,
-    CancellationToken cancellationToken = default);
-
-    Task <IPagedList<TagItem>> GetPagedTagsAsync(IPagingParams pagingParams, 
+        Task<Post> GetPostAsync(
+            int year,
+            int month,
+            string slug,
+            CancellationToken cancellationToken = default);
+        Task<IList<Post>> GetPopularArticleAsync(int numPosts, CancellationToken cancellationToken = default);
+        Task<bool> IsPostSlugExistedAsync(
+            int postId, string slug,
+            CancellationToken cancellationToken = default);
+        Task IncreaseViewCountAsync(
+            int postId,
+            CancellationToken cancellationToken = default);
+        Task<IList<CategoryItem>> GetCategoriesAsync(
+            bool showOnMenu = false,
+            CancellationToken cancellationToken = default);
+        Task<IPagedList<TagItem>> GetPagedTagsAsync(
+            IPagingParams pagingParams, CancellationToken cancellationToken = default);
+        Task<Tag> FindTagBySlugAsync(string slug, CancellationToken cancellationToken = default);
+        Task<IList<TagItem>> FindTagItemSlugAsync(CancellationToken cancellationToken = default);
+        Task<bool> DeleteTagByIdAsync(int id, CancellationToken cancellationToken = default);
+        Task<Category> FindCategoryBySlugAsync(string slug, CancellationToken cancellationToken = default);
+        Task<Category> FindCategoryByIdAsync(int id, CancellationToken cancellationToken = default);
+        Task<bool> AddOrEditCategoryAsync(Category newCategory, CancellationToken cancellationToken = default);
+        Task<bool> DeleteCategoryByIdAsync(int id, CancellationToken cancellationToken = default);
+        Task<bool> IsSlugOfCategoryExist(string slug, CancellationToken cancellationToken = default);
+        Task<IPagedList<CategoryItem>> GetPagedCategoriesAsync(IPagingParams pagingParams, CancellationToken cancellationToken = default);
+        Task<Object> CountByMostRecentMonthAsync(int month, CancellationToken cancellationToken = default);
+        Task<Post> FindPostByIdAsync(int id, CancellationToken cancellationToken = default);
+        Task<bool> AddOrUpdatePostAsync(Post post, CancellationToken cancellationToken = default);
+        Task ChangeStatusPublishedOfPostAsync(int id, CancellationToken cancellationToken = default);
+        Task<IList<Post>> GetPostsByQualAsync(int num, CancellationToken cancellationToken = default);
+        Task<IList<Post>> FindPostByPostQueryAsync(PostQuery query, CancellationToken cancellationToken = default);
+        Task<int> CountPostsOfPostQueryAsync(PostQuery query, CancellationToken cancellationToken = default);
+        Task<IPagedList<Post>> GetPagedPostByPostQueryAsync(IPagingParams pagingParams, PostQuery query, CancellationToken cancellationToken = default);
+        Task<IPagedList<Post>> GetPagedPostsAsync(
+        PostQuery condition,
+        int pageNumber = 1,
+        int pageSize = 10,
         CancellationToken cancellationToken = default);
-    Task<Tag> GetTagSlugAsync(string slug, CancellationToken cancellationToken = default);
-    Task<Category> GetCategorySlugAsync(
-    string slug,
-    CancellationToken cancellationToken = default);
-
-    Task<Category> GetCategoryIdAsync(
-    int id,
-    CancellationToken cancellationToken = default);
-
-    Task<Tag> RemoveTagAsync(
-    int id,
-    CancellationToken cancellationToken = default);
-
-    Task<Post> GetPostsIdAsync(
-    int id,
-    CancellationToken cancellationToken = default);
-
-    Task<bool> IsCategoryExistSlugAsync(string slug, CancellationToken cancellationToken = default);
-    Task<bool> DeleteCategoryWithSlugAsync(string slug, CancellationToken cancellationToken);
+    }
 }
