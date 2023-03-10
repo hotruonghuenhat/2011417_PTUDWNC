@@ -60,28 +60,42 @@ namespace TatBlog.WebApp.Controllers {
             var postQuery = new PostQuery() {
                 TagSlug = slug,
             };
-            ViewBag.PostQuery = postQuery; ;
+            ViewBag.PostQuery = postQuery; 
             var postList = await _blogRepository.GetPagedPostsAsync(postQuery);
             return View("Index", postList);
-        } 
-        
-        public async Task<IActionResult> Post([FromRoute(Name = "slug")] int year, int month, int day, string slug = null) {
-            //tạo đối tượng chứa các điều kiện truy vấn
-            //var postQuery = new PostQuery() {
-            //    //chỉ lấy những bài viết có trạng thái Published
-            //    PublishedOnly = true,
-            //    //tìm bài viết theo từ khóa
-            //    KeyWord = keyword,
-            //};
+        }
+
+        public async Task<IActionResult> Post([FromRoute(Name = "year")] int year = 2023,
+                                              [FromRoute(Name = "month")] int month = 3,
+                                              [FromRoute(Name = "day")] int day = 10,
+                                              [FromRoute(Name = "slug")] string slug = null) {
             var postQuery = new PostQuery() {
-                Year = year = 2023,
-                Month = month = 2,
-                Day = day = 2,
-                TagSlug = slug,
+                Month = month,
+                Year = year,
+                Day = day,
+                UrlSlug = slug,
             };
-            ViewBag.PostQuery = postQuery; ;
-            var postList = await _blogRepository.GetPagedPostsAsync(postQuery);
-            return View("Index", postList);
+            ViewBag.PostQuery = postQuery;
+            var posts = await _blogRepository.GetPostsAsync(postQuery);
+            try {
+                if (posts != null && !posts.Published) {
+                    await _blogRepository.IncreaseViewCountAsync(posts.Id);
+                }
+            }
+            catch (NullReferenceException) {
+                return View("Error");
+            }
+            return View("DetailPost", posts);
+        }
+
+        public async Task<IActionResult> Archives([FromRoute(Name = "year")] int year = 2021,
+                                                    [FromRoute(Name = "month")] int month = 9) {
+            var postQuery = new PostQuery() {
+                Year = year,
+                Month = month
+            };
+            var posts = _blogRepository.GetPagedPostsAsync(postQuery);
+            return View();
         }
 
         public IActionResult About() => View();

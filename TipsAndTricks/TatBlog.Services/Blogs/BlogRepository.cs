@@ -49,23 +49,17 @@ namespace TatBlog.Services.Blogs {
         }
 
         public async Task<Post> GetPostAsync(int year, int month, string slug, CancellationToken cancellationToken = default) {
-            IQueryable<Post> postsQuery = _context.Set<Post>()
-                .Include(x => x.Category)
-                .Include(x => x.Author);
-
+            IQueryable<Post> postQuery = _context.Set<Post>().Include(x => x.Category).Include(x => x.Author);
             if (year > 0) {
-                postsQuery = postsQuery.Where(x => x.PostedDate.Year == year);
+                postQuery = postQuery.Where(x => x.PostedDate.Year == year);
             }
-
             if (month > 0) {
-                postsQuery = postsQuery.Where(x => x.PostedDate.Month == month);
+                postQuery = postQuery.Where(x => x.PostedDate.Month == month);
             }
-
             if (!string.IsNullOrWhiteSpace(slug)) {
-                postsQuery = postsQuery.Where(x => x.UrlSlug == slug);
+                postQuery = postQuery.Where(x => x.UrlSlug == slug);
             }
-
-            return await postsQuery.FirstOrDefaultAsync(cancellationToken);
+            return await postQuery.FirstOrDefaultAsync(cancellationToken);
         }
 
         public async Task IncreaseViewCountAsync(int postId, CancellationToken cancellationToken = default) {
@@ -278,6 +272,23 @@ namespace TatBlog.Services.Blogs {
             }
 
             return posts;
+        }
+
+        public async Task<Post> GetPostsAsync(PostQuery query, CancellationToken cancellationToken = default) {
+            IQueryable<Post> postQuery = _context.Set<Post>().Include(x => x.Category).Include(x => x.Author);
+            if (query.Year > 0) {
+                postQuery = postQuery.Where(x => x.PostedDate.Year == query.Year);
+            }
+            if (query.Month > 0) {
+                postQuery = postQuery.Where(x => x.PostedDate.Month == query.Month);
+            }
+            if (query.Day > 0) {
+                postQuery = postQuery.Where(x => x.PostedDate.Day == query.Day);
+            }
+            if (!string.IsNullOrWhiteSpace(query.UrlSlug)) {
+                postQuery = postQuery.Where(x => x.UrlSlug == query.UrlSlug);
+            }
+            return await postQuery.FirstOrDefaultAsync(cancellationToken);
         }
 
         public async Task<IPagedList<Post>> GetPagedPostsAsync(

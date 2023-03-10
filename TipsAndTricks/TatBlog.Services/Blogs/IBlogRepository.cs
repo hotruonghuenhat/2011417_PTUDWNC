@@ -15,6 +15,7 @@ namespace TatBlog.Services.Blogs {
             int month,
             string slug,
             CancellationToken cancellationToken = default);
+        Task<Post> GetPostsAsync(PostQuery query, CancellationToken cancellationToken = default);
         Task<IList<Post>> GetPopularArticleAsync(int numPosts, CancellationToken cancellationToken = default);
         Task<bool> IsPostSlugExistedAsync(
             int postId, string slug,
