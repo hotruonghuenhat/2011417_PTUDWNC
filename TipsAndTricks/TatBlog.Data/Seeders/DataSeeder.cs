@@ -193,7 +193,7 @@ namespace TatBlog.Data.Seeders {
                 Published = true,
                 PostedDate = new DateTime (2022, 9, 25, 10, 20, 0),
                 ModifiedDate = null,
-                Author= authors[0],
+                Author= authors[1],
                 ViewCount = 14,
                 Category = categories[3],
                 Tags = new List<Tag>()
@@ -209,7 +209,7 @@ namespace TatBlog.Data.Seeders {
                 Published = true,
                 PostedDate = new DateTime (2022, 7, 9, 10, 20, 0),
                 ModifiedDate = null,
-                Author= authors[0],
+                Author= authors[2],
                 ViewCount = 6,
                 Category = categories[6],
                 Tags = new List<Tag>()
@@ -225,7 +225,7 @@ namespace TatBlog.Data.Seeders {
                 Published = true,
                 PostedDate = new DateTime (2022, 7, 9, 10, 20, 0),
                 ModifiedDate = null,
-                Author= authors[0],
+                Author= authors[3],
                 ViewCount = 19,
                 Category = categories[6],
                 Tags = new List<Tag>()

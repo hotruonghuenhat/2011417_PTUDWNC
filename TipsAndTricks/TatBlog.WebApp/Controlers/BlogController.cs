@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TatBlog.Core.DTO;
 using TatBlog.Services.Blogs;
+using static Microsoft.Extensions.Logging.EventSource.LoggingEventSource;
 
 namespace TatBlog.WebApp.Controllers {
     public class BlogController : Controller {
@@ -34,6 +35,53 @@ namespace TatBlog.WebApp.Controllers {
 
             // Truyền danh sách bài viết vào View để render ra HTML
             return View(postsList);
+        }
+
+        public async Task<IActionResult> Category([FromRoute(Name = "slug")] string slug=null) {
+            var postQuery = new PostQuery()
+            {
+                CategorySlug = slug,
+            };
+            ViewBag.PostQuery = postQuery; ;
+            var postList = await _blogRepository.GetPagedPostsAsync(postQuery);
+            return View("Index", postList);
+        }
+
+        public async Task<IActionResult> Author([FromRoute(Name = "slug")] string slug = null) {
+            var postQuery = new PostQuery() {
+                AuthorSlug = slug,
+            };
+            ViewBag.PostQuery = postQuery; ;
+            var postList = await _blogRepository.GetPagedPostsAsync(postQuery);
+            return View("Index", postList);
+        }
+
+        public async Task<IActionResult> Tag([FromRoute(Name = "slug")] string slug = null) {
+            var postQuery = new PostQuery() {
+                TagSlug = slug,
+            };
+            ViewBag.PostQuery = postQuery; ;
+            var postList = await _blogRepository.GetPagedPostsAsync(postQuery);
+            return View("Index", postList);
+        } 
+        
+        public async Task<IActionResult> Post([FromRoute(Name = "slug")] int year, int month, int day, string slug = null) {
+            //tạo đối tượng chứa các điều kiện truy vấn
+            //var postQuery = new PostQuery() {
+            //    //chỉ lấy những bài viết có trạng thái Published
+            //    PublishedOnly = true,
+            //    //tìm bài viết theo từ khóa
+            //    KeyWord = keyword,
+            //};
+            var postQuery = new PostQuery() {
+                Year = year = 2023,
+                Month = month = 2,
+                Day = day = 2,
+                TagSlug = slug,
+            };
+            ViewBag.PostQuery = postQuery; ;
+            var postList = await _blogRepository.GetPagedPostsAsync(postQuery);
+            return View("Index", postList);
         }
 
         public IActionResult About() => View();

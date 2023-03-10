@@ -269,6 +269,9 @@ namespace TatBlog.Services.Blogs {
             if (condition.Month > 0) {
                 posts = posts.Where(x => x.PostedDate.Month == condition.Month);
             }
+            if (condition.Day > 0) {
+                posts = posts.Where(x => x.PostedDate.Day == condition.Day);
+            }
 
             if (!string.IsNullOrWhiteSpace(condition.TitleSlug)) {
                 posts = posts.Where(x => x.UrlSlug == condition.TitleSlug);

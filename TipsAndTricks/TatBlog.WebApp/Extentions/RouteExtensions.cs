@@ -4,6 +4,10 @@
             // Định nghĩa route template, route constraint cho các
             // endpoints kết hợp với các actions trong các controller
             endpoint.MapControllerRoute(
+                name: "posts-by-author",
+                pattern: "blog/author/{slug}",
+                defaults: new { controller = "Blog", action = "Author" });
+            endpoint.MapControllerRoute(
                 name: "posts-by-category",
                 pattern: "blog/category/{slug}",
                 defaults: new { controller = "Blog", action = "Category" });
