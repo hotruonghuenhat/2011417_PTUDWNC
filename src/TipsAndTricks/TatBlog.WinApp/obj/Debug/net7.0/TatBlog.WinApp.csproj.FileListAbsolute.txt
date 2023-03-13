@@ -1,5 +1,0 @@
-E:\web_nang_cao\2011417_PTUDWNC\src\TipsAndTricks\TatBlog.WinApp\obj\Debug\net7.0\TatBlog.WinApp.csproj.AssemblyReference.cache
-E:\web_nang_cao\2011417_PTUDWNC\src\TipsAndTricks\TatBlog.WinApp\obj\Debug\net7.0\TatBlog.WinApp.GeneratedMSBuildEditorConfig.editorconfig
-E:\web_nang_cao\2011417_PTUDWNC\src\TipsAndTricks\TatBlog.WinApp\obj\Debug\net7.0\TatBlog.WinApp.AssemblyInfoInputs.cache
-E:\web_nang_cao\2011417_PTUDWNC\src\TipsAndTricks\TatBlog.WinApp\obj\Debug\net7.0\TatBlog.WinApp.AssemblyInfo.cs
-E:\web_nang_cao\2011417_PTUDWNC\src\TipsAndTricks\TatBlog.WinApp\obj\Debug\net7.0\TatBlog.WinApp.csproj.CoreCompileInputs.cache
