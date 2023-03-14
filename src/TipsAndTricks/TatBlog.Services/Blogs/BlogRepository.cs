@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using TatBlog.Core.Contracts;
 using TatBlog.Core.DTO;
@@ -291,6 +292,20 @@ namespace TatBlog.Services.Blogs {
             return await postQuery.FirstOrDefaultAsync(cancellationToken);
         }
 
+        public async Task<IList<TagItem>> GetListTagItemAsync(CancellationToken cancellationToken = default) {
+            IQueryable<Tag> tagItems = _context.Set<Tag>();
+
+            return await tagItems
+                .Select(x => new TagItem() {
+                    Id = x.Id,
+                    Name = x.Name,
+                    UrlSlug = x.UrlSlug,
+                    Description = x.Description,
+                    PostCount = x.Posts.Count(p => p.Published)
+                })
+            .ToListAsync(cancellationToken);
+        }
+
         public async Task<IPagedList<Post>> GetPagedPostsAsync(
         PostQuery condition,
         int pageNumber = 1,
@@ -300,6 +315,13 @@ namespace TatBlog.Services.Blogs {
                 pageNumber, pageSize,
                 nameof(Post.PostedDate), "DESC",
                 cancellationToken);
+        }
+        public async Task<IList<Author>> GetAuthorsAsync(CancellationToken cancellationToken = default) {
+            return await _context.Set<Author>().Include(a => a.Posts).ToListAsync(cancellationToken);
+        }
+
+        public async Task GetPostByIdAsync(int id, bool v) {
+            
         }
     }
 }

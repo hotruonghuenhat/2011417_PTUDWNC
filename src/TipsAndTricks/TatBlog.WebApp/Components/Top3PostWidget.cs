@@ -2,10 +2,10 @@
 using TatBlog.Services.Blogs;
 
 namespace TatBlog.WebApp.Components {
-    public class FeaturedPostsWidget : ViewComponent {
+    public class Top3PostWidget : ViewComponent {
         private readonly IBlogRepository _blogRepository;
 
-        public FeaturedPostsWidget(IBlogRepository blogRepository) {
+        public Top3PostWidget(IBlogRepository blogRepository) {
             _blogRepository = blogRepository;
         }
 
@@ -14,5 +14,6 @@ namespace TatBlog.WebApp.Components {
 
             return View(posts);
         }
+
     }
 }

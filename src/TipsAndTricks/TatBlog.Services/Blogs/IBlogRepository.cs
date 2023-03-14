@@ -50,5 +50,8 @@ namespace TatBlog.Services.Blogs {
         int pageNumber = 1,
         int pageSize = 10,
         CancellationToken cancellationToken = default);
+        Task<IList<TagItem>> GetListTagItemAsync(CancellationToken cancellationToken = default);
+        Task<IList<Author>> GetAuthorsAsync(CancellationToken cancellationToken = default);
+        Task GetPostByIdAsync(int id, bool v);
     }
 }
