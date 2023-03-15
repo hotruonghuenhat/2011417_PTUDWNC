@@ -1,32 +1,44 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using NLog.Web;
 using TatBlog.Data.Contexts;
 using TatBlog.Data.Seeders;
 using TatBlog.Services.Blogs;
+using TatBlog.Services.Media;
+using TatBlog.WebApp.Middlewares;
 
 namespace TatBlog.WebApp.Extentions {
     public static class WebApplicationExtensions {
-        //thêm các dịch vụ được yêu cầu bởi MVC framework
         public static WebApplicationBuilder ConfigureMvc(this WebApplicationBuilder builder) {
             builder.Services.AddControllersWithViews();
             builder.Services.AddResponseCompression();
 
             return builder;
         }
-        //đăng ký các dịch vụ với DI container
+
         public static WebApplicationBuilder ConfigureServices(this WebApplicationBuilder builder) {
             builder.Services.AddDbContext<BlogDbContext>(
        options => options.UseSqlServer(
            builder.Configuration.GetConnectionString("DefaultConnection"))
        );
 
+
+            builder.Services.AddScoped<IMediaManager, LocalFileSystemMediaManager>();
             builder.Services.AddScoped<IBlogRepository, BlogRepository>();
             builder.Services.AddScoped<IDataSeeder, DataSeeder>();
 
 
             return builder;
         }
-        //cấu hình HTTP Requét pipeline
+
+        public static WebApplicationBuilder ConfigureNLog(this WebApplicationBuilder builder) {
+            builder.Logging.ClearProviders();
+            builder.Host.UseNLog();
+
+            return builder;
+        }
+
         public static WebApplication UserRequestPipeline(this WebApplication app) {
+            // Cấu hình HTTP Request pipeline
 
             // Thêm middleware để hiển thị thông báo lỗi
             if (app.Environment.IsDevelopment()) {
@@ -47,10 +59,11 @@ namespace TatBlog.WebApp.Extentions {
 
             app.UseRouting();
 
+            app.UseMiddleware<UserActivityMiddleware>();
+
             return app;
         }
 
-        //thêm dữ liệu mẫu vào CSDL
         public static IApplicationBuilder UseDataSeeder(this IApplicationBuilder app) {
             using (var scope = app.ApplicationServices.CreateScope()) {
                 try {
