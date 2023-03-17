@@ -1,52 +1,12 @@
-﻿<header>
-    <nav class="navbar navbar-expand-sm
-    navbar-toggleable-sm navbar-light
-    bg-white border-bottom box-shadow">
-        <div class="container-fluid">
-            <a class="navbar-brand" asp-area="Admin" asp-controller="Dashboard" asp-action="Index">
-                Tips & Tricks
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-target=".navbar-collapse" data-bs-toggle="collapse"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+﻿<div class="p-4">
+    <partial name="_SearchForm" />
 
-            <div class="navbar-collapse collapse
-            d-sm-inline-flex
-            justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="Admin" asp-controller="Categories" asp-action="Index"
-                           title="Xem danh sách chủ để">
-                            Chủ đề
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="Admin" asp-controller="Authors" asp-action="Index"
-                           title="Xem danh sách tác giả">
-                            Tác giả
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-controller="Tags" asp-area="Admin" asp-action="Index"
-                           title="Xem danh sách thẻ/từ khóa">
-                            The
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="Admin" asp-controller="Posts" asp-action="Index"
-                           title="Xem danh sách bài viết">
-                            Bài viết
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="Admin" asp-controller="Comments" asp-action="Index"
-                           title="Xem danh sách bình luận">
-                            Bình Luận
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</header>
+    @await Component.InvokeAsync("CategoriesWidget")
+    @await Component.InvokeAsync("Top3PostWidget")
+    @await Component.InvokeAsync("Top5PostsWidget")
+
+    <h3 class="text-success mb-2">
+        Đăng ký nhận tin mới
+    </h3>
+    @await Component.InvokeAsync("TagsWidget")
+</div>

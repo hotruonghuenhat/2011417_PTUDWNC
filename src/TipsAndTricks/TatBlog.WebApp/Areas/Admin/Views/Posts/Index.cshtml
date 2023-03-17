@@ -1,6 +1,80 @@
-﻿@{
-    ViewData["PageTitle"] = "Bảng điều khiển";
+﻿@model TatBlog.WebApp.Areas.Admin.Models.PostFilterModel
+@{
+    ViewData["PageTitle"] = "Danh sách bài viết";
+
+    var postsList = ViewBag.PostsList as IPagedList<Post>;
 }
-<h1>
-    danh sách bài viết
-</h1>
+
+<h1>Danh sách bài viết</h1>
+
+<partial name="_PostFilterPane" model="Model" />
+
+@if (postsList != null && postsList.Count > 0) {
+    <table class="table table-responsive table-striped">
+        <thead>
+            <tr>
+                <th width="50%">Tiêu đề</th>
+                <th width="20%">Tác giả</th>
+                <th width="10%">Chủ đề</th>
+                <th width="10%">Xuất bản</th>
+                <th width="10%"></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var post in postsList) {
+                <tr>
+                    <td>
+                        <a asp-area="Admin"
+                   asp-controller="Posts"
+                   asp-action="Edit"
+                   asp-route-id="@post.Id"
+                           class="text-decoration-none text-black fw-bold">
+                            @post.Title
+                        </a>
+
+                        <p class="text-muted">@post.ShortDescription</p>
+                    </td>
+                    <td>
+                        @post.Author.FullName
+                    </td>
+                    <td>
+                        @post.Category.Name
+                    </td>
+                    <td>
+                        @(post.Published ? "Có" : "Không")
+                    </td>
+                    <td>
+
+                    <button type="button" value="@post.Id" class="btn text-danger" data-bs-target="#deletePost" data-bs-toggle="modal">
+                        Xóa
+                    </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <partial name="_Pager" model="@postsList" />
+}
+else {
+    <h1 class="text-danger">Không tìm thấy bài viết nào</h1>
+}
+
+<!-- DeletePost -->
+<div class="modal fade" id="deletePost" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Xóa bài viết</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Bạn muốn xóa bài viết này?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class=" btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                <button type="button" id="btn-delete-post" class=" btn btn-danger">Xóa</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -88,7 +88,7 @@ namespace TatBlog.WebApp.Controllers {
             return View("DetailPost", posts);
         }
 
-        public async Task<IActionResult> Archives([FromRoute(Name = "year")] int year = 2021,
+        public IActionResult Archives([FromRoute(Name = "year")] int year = 2021,
                                                     [FromRoute(Name = "month")] int month = 9) {
             var postQuery = new PostQuery() {
                 Year = year,

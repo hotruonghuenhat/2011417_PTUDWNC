@@ -12,7 +12,7 @@
         </h3>
     }
     @foreach (var item in Model) {
-        @await Html.PartialAsync("_PostList", item)
+        @await Html.PartialAsync("_PostItem", item)
     }
     @await Html.PartialAsync("_Pager", Model)
 </div>

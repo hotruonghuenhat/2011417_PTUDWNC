@@ -230,6 +230,262 @@ namespace TatBlog.Data.Seeders {
                 Category = categories[6],
                 Tags = new List<Tag>()
                 { tags[2] }
+            },
+            new()
+            {
+                Title = "JWT creation and validation in Python using Authlib",
+                ShortDescription = "David and friends has a great repos " ,
+                Description = "Here's a few great DON'T and DO examples ",
+                Meta = "David and friends has a great repository filled ",
+                UrlSlug ="aspnet-core-diagnostic-scenarios",
+                Published = true,
+                PostedDate = new DateTime (2022, 8, 25, 10, 20, 0),
+                ModifiedDate = null,
+                Author= authors[0],
+                ViewCount = 30,
+                Category = categories[5],
+                Tags = new List<Tag>()
+                { tags[3] }
+            },
+            new()
+            {
+                Title = "6 Productivity Shortcuts on Windows 10& 11",
+                ShortDescription = "David and friends has a great repos " ,
+                Description = "Here's a few great DON'T and DO examples ",
+                Meta = "David and friends has a great repository filled ",
+                UrlSlug ="aspnet-core-diagnostic-scenarios",
+                Published = true,
+                PostedDate = new DateTime (2022, 9, 25, 10, 20, 0),
+                ModifiedDate = null,
+                Author= authors[1],
+                ViewCount = 14,
+                Category = categories[3],
+                Tags = new List<Tag>()
+                { tags[3] }
+            },
+            new()
+            {
+                Title = "Azure Virtual Machines vs Aoo Services",
+                ShortDescription = "David and friends has a great repos " ,
+                Description = "Here's a few great DON'T and DO examples ",
+                Meta = "David and friends has a great repository filled ",
+                UrlSlug ="aspnet-core-diagnostic-scenarios",
+                Published = true,
+                PostedDate = new DateTime (2022, 7, 9, 10, 20, 0),
+                ModifiedDate = null,
+                Author= authors[2],
+                ViewCount = 6,
+                Category = categories[6],
+                Tags = new List<Tag>()
+                { tags[3] }
+            },
+            new()
+            {
+                Title = "Array or object Json deserialization",
+                ShortDescription = "David and friends has a great repos " ,
+                Description = "Here's a few great DON'T and DO examples ",
+                Meta = "David and friends has a great repository filled ",
+                UrlSlug ="aspnet-core-diagnostic-scenarios",
+                Published = true,
+                PostedDate = new DateTime (2022, 7, 9, 10, 20, 0),
+                ModifiedDate = null,
+                Author= authors[3],
+                ViewCount = 19,
+                Category = categories[6],
+                Tags = new List<Tag>()
+                { tags[2] }
+            },
+            new()
+            {
+                Title = "JWT creation and validation in Python using Authlib",
+                ShortDescription = "David and friends has a great repos " ,
+                Description = "Here's a few great DON'T and DO examples ",
+                Meta = "David and friends has a great repository filled ",
+                UrlSlug ="aspnet-core-diagnostic-scenarios",
+                Published = true,
+                PostedDate = new DateTime (2022, 8, 25, 10, 20, 0),
+                ModifiedDate = null,
+                Author= authors[0],
+                ViewCount = 30,
+                Category = categories[5],
+                Tags = new List<Tag>()
+                { tags[3] }
+            },
+            new()
+            {
+                Title = "6 Productivity Shortcuts on Windows 10& 11",
+                ShortDescription = "David and friends has a great repos " ,
+                Description = "Here's a few great DON'T and DO examples ",
+                Meta = "David and friends has a great repository filled ",
+                UrlSlug ="aspnet-core-diagnostic-scenarios",
+                Published = true,
+                PostedDate = new DateTime (2022, 9, 25, 10, 20, 0),
+                ModifiedDate = null,
+                Author= authors[1],
+                ViewCount = 14,
+                Category = categories[3],
+                Tags = new List<Tag>()
+                { tags[3] }
+            },
+            new()
+            {
+                Title = "Azure Virtual Machines vs Aoo Services",
+                ShortDescription = "David and friends has a great repos " ,
+                Description = "Here's a few great DON'T and DO examples ",
+                Meta = "David and friends has a great repository filled ",
+                UrlSlug ="aspnet-core-diagnostic-scenarios",
+                Published = true,
+                PostedDate = new DateTime (2022, 7, 9, 10, 20, 0),
+                ModifiedDate = null,
+                Author= authors[2],
+                ViewCount = 6,
+                Category = categories[6],
+                Tags = new List<Tag>()
+                { tags[3] }
+            },
+            new()
+            {
+                Title = "Array or object Json deserialization",
+                ShortDescription = "David and friends has a great repos " ,
+                Description = "Here's a few great DON'T and DO examples ",
+                Meta = "David and friends has a great repository filled ",
+                UrlSlug ="aspnet-core-diagnostic-scenarios",
+                Published = true,
+                PostedDate = new DateTime (2022, 7, 9, 10, 20, 0),
+                ModifiedDate = null,
+                Author= authors[3],
+                ViewCount = 19,
+                Category = categories[6],
+                Tags = new List<Tag>()
+                { tags[2] }
+            },
+            new()
+            {
+                Title = "JWT creation and validation in Python using Authlib",
+                ShortDescription = "David and friends has a great repos " ,
+                Description = "Here's a few great DON'T and DO examples ",
+                Meta = "David and friends has a great repository filled ",
+                UrlSlug ="aspnet-core-diagnostic-scenarios",
+                Published = true,
+                PostedDate = new DateTime (2022, 8, 25, 10, 20, 0),
+                ModifiedDate = null,
+                Author= authors[0],
+                ViewCount = 30,
+                Category = categories[5],
+                Tags = new List<Tag>()
+                { tags[3] }
+            },
+            new()
+            {
+                Title = "6 Productivity Shortcuts on Windows 10& 11",
+                ShortDescription = "David and friends has a great repos " ,
+                Description = "Here's a few great DON'T and DO examples ",
+                Meta = "David and friends has a great repository filled ",
+                UrlSlug ="aspnet-core-diagnostic-scenarios",
+                Published = true,
+                PostedDate = new DateTime (2022, 9, 25, 10, 20, 0),
+                ModifiedDate = null,
+                Author= authors[1],
+                ViewCount = 14,
+                Category = categories[3],
+                Tags = new List<Tag>()
+                { tags[3] }
+            },
+            new()
+            {
+                Title = "Azure Virtual Machines vs Aoo Services",
+                ShortDescription = "David and friends has a great repos " ,
+                Description = "Here's a few great DON'T and DO examples ",
+                Meta = "David and friends has a great repository filled ",
+                UrlSlug ="aspnet-core-diagnostic-scenarios",
+                Published = true,
+                PostedDate = new DateTime (2022, 7, 9, 10, 20, 0),
+                ModifiedDate = null,
+                Author= authors[2],
+                ViewCount = 6,
+                Category = categories[6],
+                Tags = new List<Tag>()
+                { tags[3] }
+            },
+            new()
+            {
+                Title = "Array or object Json deserialization",
+                ShortDescription = "David and friends has a great repos " ,
+                Description = "Here's a few great DON'T and DO examples ",
+                Meta = "David and friends has a great repository filled ",
+                UrlSlug ="aspnet-core-diagnostic-scenarios",
+                Published = true,
+                PostedDate = new DateTime (2022, 7, 9, 10, 20, 0),
+                ModifiedDate = null,
+                Author= authors[3],
+                ViewCount = 19,
+                Category = categories[6],
+                Tags = new List<Tag>()
+                { tags[2] }
+            },
+            new()
+            {
+                Title = "JWT creation and validation in Python using Authlib",
+                ShortDescription = "David and friends has a great repos " ,
+                Description = "Here's a few great DON'T and DO examples ",
+                Meta = "David and friends has a great repository filled ",
+                UrlSlug ="aspnet-core-diagnostic-scenarios",
+                Published = true,
+                PostedDate = new DateTime (2022, 8, 25, 10, 20, 0),
+                ModifiedDate = null,
+                Author= authors[0],
+                ViewCount = 30,
+                Category = categories[5],
+                Tags = new List<Tag>()
+                { tags[3] }
+            },
+            new()
+            {
+                Title = "6 Productivity Shortcuts on Windows 10& 11",
+                ShortDescription = "David and friends has a great repos " ,
+                Description = "Here's a few great DON'T and DO examples ",
+                Meta = "David and friends has a great repository filled ",
+                UrlSlug ="aspnet-core-diagnostic-scenarios",
+                Published = true,
+                PostedDate = new DateTime (2022, 9, 25, 10, 20, 0),
+                ModifiedDate = null,
+                Author= authors[1],
+                ViewCount = 14,
+                Category = categories[3],
+                Tags = new List<Tag>()
+                { tags[3] }
+            },
+            new()
+            {
+                Title = "Azure Virtual Machines vs Aoo Services",
+                ShortDescription = "David and friends has a great repos " ,
+                Description = "Here's a few great DON'T and DO examples ",
+                Meta = "David and friends has a great repository filled ",
+                UrlSlug ="aspnet-core-diagnostic-scenarios",
+                Published = true,
+                PostedDate = new DateTime (2022, 7, 9, 10, 20, 0),
+                ModifiedDate = null,
+                Author= authors[2],
+                ViewCount = 6,
+                Category = categories[6],
+                Tags = new List<Tag>()
+                { tags[3] }
+            },
+            new()
+            {
+                Title = "Array or object Json deserialization",
+                ShortDescription = "David and friends has a great repos " ,
+                Description = "Here's a few great DON'T and DO examples ",
+                Meta = "David and friends has a great repository filled ",
+                UrlSlug ="aspnet-core-diagnostic-scenarios",
+                Published = true,
+                PostedDate = new DateTime (2022, 7, 9, 10, 20, 0),
+                ModifiedDate = null,
+                Author= authors[3],
+                ViewCount = 19,
+                Category = categories[6],
+                Tags = new List<Tag>()
+                { tags[2] }
             }
         };
 

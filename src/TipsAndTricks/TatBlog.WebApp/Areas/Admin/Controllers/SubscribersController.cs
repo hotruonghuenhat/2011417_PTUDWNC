@@ -2,7 +2,7 @@
 
 namespace TatBlog.WebApp.Areas.Admin.Controllers {
     public class SubscribersController : Controller {
-        public ActionResult Index() {
+        public IActionResult Index() {
             return View();
         }
     }
