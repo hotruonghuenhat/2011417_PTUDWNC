@@ -1,6 +1,98 @@
-﻿@{
-    ViewData["PageTitle"] = "Bảng điều khiển";
+﻿@model TatBlog.WebApp.Areas.Admin.Models.TagFilterModel
+@{
+    ViewData["PageTitle"] = "Tags";
+    var tags = ViewBag.Tags;
 }
-<h1>
-    Danh sách thẻ
-</h1>
+
+<h1>Danh sách các Tags</h1>
+
+<partial name="_TagsPane" model="Model" />
+
+@if (tags != null && tags.Count > 0) {
+    <table class="table table-bordered table-responsive table-striped mt-4">
+        <thead>
+            <tr>
+                <th>Tên thẻ</th>
+                <th>UrlSlug</th>
+                <th>Description</th>
+                <th width="10%">Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var tag in tags) {
+                <tr>
+                    <td>
+                        @tag.Name
+                    </td>
+                    <td>
+                        @tag.UrlSlug
+                    </td>
+                    <td>
+                        @tag.Description
+                    </td>
+                    <td>
+                        <a asp-area="Admin"
+                   asp-controller="Tags"
+                   asp-action="Edit"
+                   asp-route-id="@tag.Id"
+                           class="btn text-success">
+                            Sửa
+                        </a>
+                        <button type="button" value="@tag.Id" class="btn text-danger" data-bs-target="#deleteModal" data-bs-toggle="modal">
+                            Xóa
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+}
+
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Xóa bài viết</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Bạn có chắc chắn muốn tags này?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                <button type="button" id="btn-delete-tag" class="btn btn-danger">Xóa</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form method="post"
+      name="delete-tag-form"
+      enctype="multipart/form-data"
+      asp-area="admin"
+      asp-controller="Tags"
+      asp-action="DeleteTags">
+</form>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var tagId;
+        var deleteForm = document.forms['delete-tag-form'];
+        var btnDeleteTag = document.getElementById('btn-delete-tag');
+        // When dialog confirm clicked
+        $('#deleteModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            tagId = button.val();
+        });
+
+        // When delete category btn clicked
+        btnDeleteTag.onclick = function () {
+            deleteForm.action += "/" + tagId
+            deleteForm.submit();
+        }
+    });
+</script>
+

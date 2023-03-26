@@ -78,3 +78,30 @@ else {
         </div>
     </div>
 </div>
+
+<form method="post"
+      name="delete-post-form"
+      enctype="multipart/form-data"
+      asp-area="admin"
+      asp-controller="Posts"
+      asp-action="DeletePost">
+</form>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var postId;
+        var deleteForm = document.forms['delete-post-form'];
+        var btnDeletePost = document.getElementById('btn-delete-post');
+        // When dialog confirm clicked
+        $('#deleteModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            postId = button.val();
+        });
+
+        // When delete post btn clicked
+        btnDeletePost.onclick = function () {
+            deleteForm.action += "/" + postId;
+            deleteForm.submit();
+        }
+    });
+</script>

@@ -1,6 +1,98 @@
-﻿@{
-    ViewData["PageTitle"] = "Bảng điều khiển";
+﻿@model TatBlog.WebApp.Areas.Admin.Models.CategoryFilterModel
+@{
+    ViewData["PageTitle"] = "Chủ đề";
+    var categories = ViewBag.categories;
 }
-<h1>
-    Danh sách chủ đề
-</h1>
+
+<h1>Danh sách chủ đề</h1>
+
+<partial name="_CategoriesPane" model="Model" />
+
+@if (categories != null && categories.Count > 0) {
+    <table class="table table-bordered table-responsive table-striped mt-4">
+        <thead >
+            <tr>
+                <th>Chủ đề</th>
+                <th>Mô tả</th>
+                <th>Hiển thị</th>
+                <th width="10%">Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var category in categories) {
+                <tr>
+                    <td>
+                        @category.Name
+                    </td>
+                    <td>
+                        @category.Description
+                    </td>
+                    <td>
+                        @(category.ShowOnMenu ? "Có" : "Không")
+                    </td>
+                    <td>
+                        <a asp-area="Admin"
+                   asp-controller="Categories"
+                   asp-action="Edit"
+                   asp-route-id="@category.Id"
+                           class="btn text-success">
+                            Sửa
+                        </a>
+                        <button type="button" value="@category.Id" class="btn text-danger" data-bs-target="#deleteModal" data-bs-toggle="modal">
+                            Xóa
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+}
+
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Xóa bài viết</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Bạn có chắc chắn muốn xoá chủ đề này?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                <button type="button" id="btn-delete-category" class="btn btn-danger">Xóa</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form method="post"
+      name="delete-category-form"
+      enctype="multipart/form-data"
+      asp-area="admin"
+      asp-controller="Categories"
+      asp-action="DeleteCategory">
+</form>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var categoryId;
+        var deleteForm = document.forms['delete-category-form'];
+        var btnDeleteCategory = document.getElementById('btn-delete-category');
+        // When dialog confirm clicked
+        $('#deleteModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            categoryId = button.val();
+        });
+
+        // When delete category btn clicked
+        btnDeleteCategory.onclick = function () {
+            deleteForm.action += "/" + categoryId;
+            deleteForm.submit();
+        }
+    });
+</script>
+
