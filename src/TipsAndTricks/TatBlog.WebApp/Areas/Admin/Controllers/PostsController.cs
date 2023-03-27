@@ -26,17 +26,37 @@ namespace TatBlog.WebApp.Areas.Admin.Controllers {
             // Khởi tạo validator to post
             _postValidator = new PostValidator(blogRepository);
         }
-        public async Task<IActionResult> Index(PostFilterModel model) {
+        public async Task<IActionResult> Index(PostFilterModel model,
+            [FromQuery(Name = "k")] string keyword = null,
+            [FromQuery(Name = "p")] int pageNumber = 1,
+            [FromQuery(Name = "ps")] int pageSize = 10) {
+
+            ////tạo đối tượng chứa các điều kiện truy vấn
+            //var postQuery = new PostQuery() {
+            //    //tìm bài viết theo từ khóa
+            //    KeyWord = model.Keyword,
+            //    Year = (int)model.Year,
+            //    Month = (int)model.Month
+
+            //};
+
+            ////Lưu lại điều kiện truy vấn để hiển thị trong View
+            //ViewBag.PostList = await _blogRepository.GetPagedPostsAsync(postQuery, pageNumber, pageSize);
+
+            //await PopulatePostFilterModeAsync(model);
+
+            //// Truyền danh sách bài viết vào View để render ra HTML
+            //return View(model);
+
 
             _logger.LogInformation("Tạo điều kiện truy vấn");
-            // using library map :D --> fast, concise: gọn
+
             var postQuery = _mapper.Map<PostQuery>(model);
 
             _logger.LogInformation("Lấy danh sách bài viết từ CSDL");
 
-            ViewBag.PostsList = await _blogRepository.GetPagedPostsAsync(postQuery, 1, 10);
+            ViewBag.PostsList = await _blogRepository.GetPagedPostsAsync(postQuery, pageNumber, 10);
 
-            _logger.LogInformation("Chuẩn bị dữ liệu cho ViewModel");
             await PopulatePostFilterModeAsync(model);
 
             return View(model);
@@ -140,5 +160,6 @@ namespace TatBlog.WebApp.Areas.Admin.Controllers {
                                    : Json(true);
 
         }
+
     }
 }

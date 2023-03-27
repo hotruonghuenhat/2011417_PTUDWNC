@@ -3,10 +3,8 @@
 
     @await Component.InvokeAsync("CategoriesWidget")
     @await Component.InvokeAsync("Top3PostWidget")
+    @await Component.InvokeAsync("Top4AuthorsWidget")
     @await Component.InvokeAsync("Top5PostsWidget")
-
-    <h3 class="text-success mb-2">
-        Đăng ký nhận tin mới
-    </h3>
     @await Component.InvokeAsync("TagsWidget")
+    @await Component.InvokeAsync("Archives")
 </div>

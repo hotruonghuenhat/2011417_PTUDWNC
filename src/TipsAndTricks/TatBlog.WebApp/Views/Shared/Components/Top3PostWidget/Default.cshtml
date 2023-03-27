@@ -7,7 +7,7 @@
     <ul class="list-group">
         @foreach (var item in Model) {
             <li class="list-group-item">
-                <a class="text-dark fw-bold" asp-controller="Blog"
+                <a class="text-dark fw-bold text-decoration-none" asp-controller="Blog"
                asp-action="Post"
                asp-route-year="@item.PostedDate.Year"
                asp-route-month="@item.PostedDate.Month"

@@ -53,7 +53,7 @@ public class PostEditModel {
 
     [DisplayName("Từ khóa (mỗi từ 1 dòng)")]
     [Required(ErrorMessage = "Bạn chưa nhập tên thẻ")]
-    public string? SelectedTags { get; set; }
+    public string SelectedTags { get; set; }
 
     public IEnumerable<SelectListItem> AuthorList { get; set; }
     public IEnumerable<SelectListItem> CategoryList { get; set; }
