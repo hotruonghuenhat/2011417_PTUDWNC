@@ -1,12 +1,9 @@
-﻿namespace TatBlog.WebApi.Models
-{
-    public class ValidationFailureResponse
-    {
-        public IEnumerable<string> Errors { get; set; }
+﻿namespace TatBlog.WebApi.Models;
 
-        public ValidationFailureResponse(IEnumerable<string> errors)
-        {
-            Errors = errors;
-        }
+public class ValidationFailureResponse {
+    public IEnumerable<string> Errors { get; set; }
+
+    public ValidationFailureResponse(IEnumerable<string> errors) {
+        Errors = errors;
     }
 }

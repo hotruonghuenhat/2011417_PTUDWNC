@@ -1,18 +1,18 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TatBlog.Services.Blogs;
 
-namespace TatBlog.WebApp.Components {
-    public class TagsWidget : ViewComponent {
-        private readonly IBlogRepository _blogRepository;
+namespace TatBlog.WebApp.Components;
 
-        public TagsWidget(IBlogRepository blogRepository) {
-            _blogRepository = blogRepository;
-        }
+public class TagsWidget : ViewComponent {
+    private readonly IBlogRepository _blogRepository;
 
-        public async Task<IViewComponentResult> InvokeAsync() {
-            var tags = await _blogRepository.GetListTagItemAsync();
-            return View(tags);
-        }
-
+    public TagsWidget(IBlogRepository blogRepository) {
+        _blogRepository = blogRepository;
     }
+
+    public async Task<IViewComponentResult> InvokeAsync() {
+        var tags = await _blogRepository.GetListTagItemAsync();
+        return View(tags);
+    }
+
 }

@@ -1,13 +1,10 @@
 ﻿using FluentValidation;
-using TatBlog.Services.Blogs;
 using TatBlog.WebApi.Models;
 
 namespace TatBlog.WebApi.Validations;
 
-public class AuthorValidator : AbstractValidator<AuthorEditModel>
-{
-    public AuthorValidator()
-    {
+public class AuthorValidator : AbstractValidator<AuthorEditModel> {
+    public AuthorValidator() {
         RuleFor(a => a.FullName)
         .NotEmpty()
         .WithMessage("Tên tác giả không được để trống")
@@ -17,7 +14,7 @@ public class AuthorValidator : AbstractValidator<AuthorEditModel>
         RuleFor(a => a.UrlSlug)
         .NotEmpty()
         .WithMessage("Slug của tác giả không được để trống")
-        .MaximumLength(1000)
+        .MaximumLength(100)
         .WithMessage("Slug dài tối đa '{MaxLength}' kí tự");
 
         RuleFor(a => a.JoinedDate)

@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System;
 using TatBlog.Core.DTO;
 using TatBlog.Core.Entities;
 using TatBlog.Data.Contexts;
@@ -24,8 +23,7 @@ public class Archives : ViewComponent {
                             Year = x.Year
                         }).ToList();
 
-        var postDate = await _context.Set<Post>().GroupBy(p => new
-        {
+        var postDate = await _context.Set<Post>().GroupBy(p => new {
             p.PostedDate.Month,
             p.PostedDate.Year
         })

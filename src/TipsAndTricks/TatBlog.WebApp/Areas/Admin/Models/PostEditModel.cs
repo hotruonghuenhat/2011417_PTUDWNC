@@ -1,11 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
-using System.Threading.Channels;
-using TatBlog.Core.Entities;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc;
 
 namespace TatBlog.WebApp.Areas.Admin.Models;
+
 public class PostEditModel {
     public int Id { get; set; }
 
@@ -64,5 +63,4 @@ public class PostEditModel {
         return (SelectedTags ?? "").Split(new[] { ',', ';', '\r', '\n' }, 
             StringSplitOptions.RemoveEmptyEntries).ToList();
     }
-
 }

@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using TatBlog.Core.Contracts;
 
-using TatBlog.Core.Contracts;
 namespace TatBlog.Core.Entities;
 // Biểu diễn một từ khóa trong bài viết 
-public class Tag: IEntity {
+public class Tag : IEntity {
     // Mã từ khóa
     public int Id { get; set; }
     // Nội dung từ khóa 

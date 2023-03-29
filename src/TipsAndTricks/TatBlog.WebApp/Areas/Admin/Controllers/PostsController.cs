@@ -11,6 +11,7 @@ using TatBlog.WebApp.Areas.Admin.Models;
 using TatBlog.WebApp.Validations;
 
 namespace TatBlog.WebApp.Areas.Admin.Controllers;
+
 public class PostsController : Controller {
     private readonly IBlogRepository _blogRepository;
     private readonly IMapper _mapper;
@@ -156,5 +157,4 @@ public class PostsController : Controller {
 
         return RedirectToAction(nameof(Index));
     }
-
 }

@@ -10,54 +10,54 @@
 <partial name="_PostFilterPane" model="Model" />
 
 @if (postsList != null && postsList.Count > 0) {
-    <table class="table table-responsive table-striped">
-        <thead>
-            <tr>
-                <th width="50%">Tiêu đề</th>
-                <th width="20%">Tác giả</th>
-                <th width="10%">Chủ đề</th>
-                <th width="10%">Xuất bản</th>
-                <th width="10%"></th>
-            </tr>
-        </thead>
-
-        <tbody>
-            @foreach (var post in postsList) {
+        <table class="table table-responsive table-striped">
+            <thead>
                 <tr>
-                    <td>
-                        <a asp-area="Admin"
+                    <th width="50%">Tiêu đề</th>
+                    <th width="20%">Tác giả</th>
+                    <th width="10%">Chủ đề</th>
+                    <th width="10%">Xuất bản</th>
+                    <th width="10%"></th>
+                </tr>
+            </thead>
+
+            <tbody>
+            @foreach (var post in postsList) {
+                        <tr>
+                            <td>
+                                <a asp-area="Admin"
                    asp-controller="Posts"
                    asp-action="Edit"
                    asp-route-id="@post.Id"
-                           class="text-decoration-none text-black fw-bold">
+                                   class="text-decoration-none text-black fw-bold">
                             @post.Title
-                        </a>
+                                </a>
 
-                        <p class="text-muted">@post.ShortDescription</p>
-                    </td>
-                    <td>
+                                <p class="text-muted">@post.ShortDescription</p>
+                            </td>
+                            <td>
                         @post.Author.FullName
-                    </td>
-                    <td>
+                            </td>
+                            <td>
                         @post.Category.Name
-                    </td>
-                    <td>
+                            </td>
+                            <td>
                         @(post.Published ? "Có" : "Không")
-                    </td>
-                    <td>
+                            </td>
+                            <td>
 
-                        <button type="button" value="@post.Id" class="btn btn-danger" data-bs-target="#deleteModal" data-bs-toggle="modal">
-                            Xóa
-                        </button>
-                    </td>
-                </tr>
+                                <button type="button" value="@post.Id" class="btn text-danger" data-bs-target="#deleteModal" data-bs-toggle="modal">
+                                    Xóa
+                                </button>
+                            </td>
+                        </tr>
             }
-        </tbody>
-    </table>
-    <partial name="_Pager" model="@postsList" />
+            </tbody>
+        </table>
+        <partial name="_Pager" model="@postsList" />
 }
 else {
-    <h1 class="text-danger">Không tìm thấy bài viết nào</h1>
+        <h1 class="text-danger">Không tìm thấy bài viết nào</h1>
 }
 
 <!-- Modal -->

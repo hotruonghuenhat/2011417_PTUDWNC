@@ -3,31 +3,27 @@ using TatBlog.Core.Contracts;
 
 namespace TatBlog.Core.Collections;
 
-public class PagedList<T> : PagingMetadata, IPagedList<T>
-{
-	private readonly List<T> _subset = new();
+public class PagedList<T> : PagingMetadata, IPagedList<T> {
+    private readonly List<T> _subset = new();
 
-	public PagedList(IList<T> items, int pageNumber, int pageSize, int totalCount)
-		: base(pageNumber, pageSize, totalCount)
-	{
-		_subset.AddRange(items);
-	}
+    public PagedList(IList<T> items, int pageNumber, int pageSize, int totalCount)
+        : base(pageNumber, pageSize, totalCount) {
+        _subset.AddRange(items);
+    }
 
-	#region IPagedList<T> Members
+    #region IPagedList<T> Members
 
-	public IEnumerator<T> GetEnumerator()
-	{
-		return _subset.GetEnumerator();
-	}
+    public IEnumerator<T> GetEnumerator() {
+        return _subset.GetEnumerator();
+    }
 
-	IEnumerator IEnumerable.GetEnumerator()
-	{
-		return GetEnumerator();
-	}
+    IEnumerator IEnumerable.GetEnumerator() {
+        return GetEnumerator();
+    }
 
-	public T this[int index] => _subset[index];
+    public T this[int index] => _subset[index];
 
-	public virtual int Count => _subset.Count;
+    public virtual int Count => _subset.Count;
 
-	#endregion
+    #endregion
 }
