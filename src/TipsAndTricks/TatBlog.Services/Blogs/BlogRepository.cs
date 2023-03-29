@@ -46,6 +46,15 @@ namespace TatBlog.Services.Blogs {
             return await _context.Set<Author>().Where(a => a.Id == id).FirstOrDefaultAsync(cancellationToken);
         }
 
+        public async Task ChangePostStatusAsync(int id, CancellationToken cancellationToken = default) {
+            var post = await _context.Posts.FindAsync(id);
+
+            post.Published = !post.Published;
+
+            _context.Attach(post).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+        }
+
         public async Task<bool> AddOrEditAuthorAsync(Author author, CancellationToken cancellationToken = default) {
             _context.Entry(author).State = author.Id == 0 ? EntityState.Added : EntityState.Modified;
             return await _context.SaveChangesAsync(cancellationToken) > 0;
@@ -427,8 +436,14 @@ namespace TatBlog.Services.Blogs {
         }
 
         public async Task<bool> DeletePostByIdAsync(int id, CancellationToken cancellationToken = default) {
-            return await _context.Set<Post>()
-                .Where(t => t.Id == id).ExecuteDeleteAsync(cancellationToken) > 0;
+            var post = await _context.Set<Post>().FindAsync(id);
+
+            if (post is null) return false;
+
+            _context.Set<Post>().Remove(post);
+            var rowsCount = await _context.SaveChangesAsync(cancellationToken);
+
+            return rowsCount > 0;
         }
 
         public async Task<IPagedList<Post>> GetPagedPostsAsync(

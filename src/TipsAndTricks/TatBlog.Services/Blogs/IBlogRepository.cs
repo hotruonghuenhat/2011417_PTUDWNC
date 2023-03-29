@@ -47,6 +47,7 @@ namespace TatBlog.Services.Blogs {
         Task<Tag> FindTagById(int id, CancellationToken cancellationToken = default);
         Task<bool> AddOrEditTagAsync(Tag tag, CancellationToken cancellationToken = default);
         Task<bool> DeletePostByIdAsync(int id, CancellationToken cancellationToken = default);
+        Task ChangePostStatusAsync(int id, CancellationToken cancellationToken = default);
 
     }
 }

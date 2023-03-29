@@ -46,9 +46,9 @@
                     </td>
                     <td>
 
-                    <button type="button" value="@post.Id" class="btn text-danger" data-bs-target="#deletePost" data-bs-toggle="modal">
-                        Xóa
-                    </button>
+                        <button type="button" value="@post.Id" class="btn btn-danger" data-bs-target="#deleteModal" data-bs-toggle="modal">
+                            Xóa
+                        </button>
                     </td>
                 </tr>
             }
@@ -60,8 +60,8 @@ else {
     <h1 class="text-danger">Không tìm thấy bài viết nào</h1>
 }
 
-<!-- DeletePost -->
-<div class="modal fade" id="deletePost" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -69,11 +69,11 @@ else {
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p>Bạn muốn xóa bài viết này?</p>
+                <p>Bạn có chắc chắn muốn xóa bài viết này?</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class=" btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                <button type="button" id="btn-delete-post" class=" btn btn-danger">Xóa</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                <button type="button" id="btn-delete-post" class="btn btn-danger">Xóa</button>
             </div>
         </div>
     </div>
@@ -82,7 +82,7 @@ else {
 <form method="post"
       name="delete-post-form"
       enctype="multipart/form-data"
-      asp-area="admin"
+      asp-area="Admin"
       asp-controller="Posts"
       asp-action="DeletePost">
 </form>
