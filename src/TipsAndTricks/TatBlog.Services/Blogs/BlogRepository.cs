@@ -434,7 +434,29 @@ namespace TatBlog.Services.Blogs {
 
             return await tagItems.ToListAsync(cancellationToken);
         }
+        public async Task<IPagedList<Post>> GetPostByQueryAsync(PostQuery query, int pageNumber = 1, int pageSize = 10, CancellationToken cancellationToken = default)
+        {
+            return await FilterPosts(query).ToPagedListAsync(
+                                    pageNumber,
+                                    pageSize,
+                                    nameof(Post.PostedDate),
+                                    "DESC",
+                                    cancellationToken);
+        }
 
+        public async Task<IPagedList<Post>> GetPostByQueryAsync(PostQuery query, IPagingParams pagingParams, CancellationToken cancellationToken = default)
+        {
+            return await FilterPosts(query).ToPagedListAsync(
+                                            pagingParams,
+                                            cancellationToken);
+        }
+
+        public async Task<IPagedList<T>> GetPostByQueryAsync<T>(PostQuery query, IPagingParams pagingParams, Func<IQueryable<Post>, IQueryable<T>> mapper, CancellationToken cancellationToken = default)
+        {
+            IQueryable<T> result = mapper(FilterPosts(query));
+
+            return await result.ToPagedListAsync(pagingParams, cancellationToken);
+        }
         public async Task<bool> DeletePostByIdAsync(int id, CancellationToken cancellationToken = default) {
             var post = await _context.Set<Post>().FindAsync(id);
 

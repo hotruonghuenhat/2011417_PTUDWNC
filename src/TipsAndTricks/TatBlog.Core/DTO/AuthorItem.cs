@@ -13,5 +13,6 @@ namespace TatBlog.Core.DTO {
         public string Email { get; set; }
         public DateTime JoinedDate { get; set; }
         public int PostCount { get; set; }
+        public string Notes { get; set; }
     }
 }
