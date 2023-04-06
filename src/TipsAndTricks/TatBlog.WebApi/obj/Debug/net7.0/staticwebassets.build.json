@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "BCKI7FbOM9peynaQbwSkARhsgFw+a5gQ2LEeEZFXRmI=",
+  "Source": "TatBlog.WebApi",
+  "BasePath": "_content/TatBlog.WebApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

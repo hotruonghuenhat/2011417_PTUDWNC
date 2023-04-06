@@ -1,7 +1,6 @@
 ﻿namespace TatBlog.Core.DTO;
-
 public class CategoryQuery {
-    public int? Id { get; set; }
+    public string Keyword { get; set; }
+    public string UrlSlug { get; set; }
     public bool ShowOnMenu { get; set; }
-    public string KeyWord { get; set; }
 }

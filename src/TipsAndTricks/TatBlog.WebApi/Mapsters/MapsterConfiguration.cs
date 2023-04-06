@@ -1,9 +1,10 @@
 ﻿using Mapster;
 using TatBlog.Core.DTO;
 using TatBlog.Core.Entities;
-using TatBlog.WebApi.Models;
+using TatBlog.WebApi.Models.Authors;
+using TatBlog.WebApi.Models.Posts;
 
-namespace TatBlog.WebApi.Mapsters; 
+namespace TatBlog.WebApi.Mapsters;
 
 public class MapsterConfiguration : IRegister {
     public void Register(TypeAdapterConfig config) {

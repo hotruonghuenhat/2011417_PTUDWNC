@@ -2,11 +2,11 @@
 using NLog.Web;
 using TatBlog.Data.Contexts;
 using TatBlog.Services.Blogs;
+using TatBlog.Services.Blogs.Authors;
 using TatBlog.Services.Media;
 using TatBlog.Services.Timing;
 
 namespace TatBlog.WebApi.Extensions;
-
 public static class WebApplicationExtensions {
     public static WebApplicationBuilder ConfigureServices(this WebApplicationBuilder builder) {
         builder.Services.AddMemoryCache();
@@ -20,6 +20,12 @@ public static class WebApplicationExtensions {
         builder.Services.AddScoped<IMediaManager, LocalFileSystemMediaManager>();
         builder.Services.AddScoped<IBlogRepository, BlogRepository>();
         builder.Services.AddScoped<IAuthorRepository, AuthorRepository>();
+        builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+        builder.Services.AddScoped<ICommentRepository, CommentRepository>();
+        builder.Services.AddScoped<IDashboardRepository, DashboardRepository>();
+        builder.Services.AddScoped<ISubscriberRepository, SubscriberRepository>();
+        builder.Services.AddScoped<ITagRepository, TagRepository>();
+        builder.Services.AddTransient<SendMailService>();
 
         return builder;
     }

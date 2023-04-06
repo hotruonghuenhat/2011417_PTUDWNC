@@ -27,7 +27,6 @@ namespace TatBlog.Services.Blogs {
         Task IncreaseViewCountAsync(int postId, CancellationToken cancellationToken = default);
         Task<Object> CountByMostRecentMonthAsync(int month, CancellationToken cancellationToken = default);
         Task<Post> FindPostByIdAsync(int id, CancellationToken cancellationToken = default);
-        Task<bool> AddOrUpdatePostAsync(Post post, CancellationToken cancellationToken = default);
         Task ChangeStatusPublishedOfPostAsync(int id, CancellationToken cancellationToken = default);
         Task<IList<Post>> GetPostsByQualAsync(int num, CancellationToken cancellationToken = default);
         Task<IList<Post>> FindPostByPostQueryAsync(PostQuery query, CancellationToken cancellationToken = default);
@@ -42,6 +41,10 @@ namespace TatBlog.Services.Blogs {
         Task<IPagedList<T>> GetPostByQueryAsync<T>(PostQuery query, IPagingParams pagingParams, Func<IQueryable<Post>, IQueryable<T>> mapper, CancellationToken cancellationToken = default);
         Task<IList<Post>> GetPopularArticleAsync(int numPosts, CancellationToken cancellationToken = default);
         Task<Post> GetPostsAsync(PostQuery query, CancellationToken cancellationToken = default);
+        Task<IList<Post>> GetPopularArticlesAsync(int limit, CancellationToken cancellationToken = default);
+        Task<IList<Post>> GetRandomPostAsync(int limit, CancellationToken cancellationToken = default);
+        Task<Post> GetCachedPostByIdAsync(int id, bool published = false, CancellationToken cancellationToken = default);
+        Task<bool> AddOrUpdatePostAsync(Post post, IEnumerable<string> tags, CancellationToken cancellationToken = default);
 
         Task<IPagedList<TagItem>> GetPagedTagsAsync(IPagingParams pagingParams, CancellationToken cancellationToken = default);
         Task<Tag> FindTagBySlugAsync(string slug, CancellationToken cancellationToken = default);
@@ -52,5 +55,8 @@ namespace TatBlog.Services.Blogs {
         Task<bool> IsTagSlugExistedAsync(int id, string slug, CancellationToken cancellationToken = default);
         Task<Tag> FindTagById(int id, CancellationToken cancellationToken = default);
         Task<bool> AddOrEditTagAsync(Tag tag, CancellationToken cancellationToken = default);
+
+        Task<IList<DateItem>> GetArchivesPostAsync(int limit, CancellationToken cancellationToken = default);
+        Task<IList<DateItem>> GetLatestMonthList(int limit);
     }
 }
