@@ -6,9 +6,12 @@ using TatBlog.Core.Collections;
 using TatBlog.Core.DTO;
 using TatBlog.Core.Entities;
 using TatBlog.Services.Blogs;
+using TatBlog.Services.Blogs.Authors;
 using TatBlog.Services.Media;
 using TatBlog.WebApi.Filters;
 using TatBlog.WebApi.Models;
+using TatBlog.WebApi.Models.Authors;
+using TatBlog.WebApi.Models.Posts;
 
 namespace TatBlog.WebApi.Endpoints;
 
@@ -48,6 +51,16 @@ public static class AuthorEndpoints {
                          .WithName("DeleteAuthor")
                          .Produces(204)
                          .Produces(404);
+
+        routeGroupBuilder.MapPost("/{id:int}/avatar", SetAuthorPicture)
+                         .WithName("SetAuthorPicture")
+                         .Accepts<IFormFile>("multipart/formdata")
+                         .Produces<string>()
+                         .Produces(400);
+
+        routeGroupBuilder.MapGet("/best/{limit:int}", GetBestAuthors)
+                         .WithName("GetBestAuthors")
+                         .Produces<PagedList<Author>>();
         return app;
     }
 
@@ -130,7 +143,7 @@ public static class AuthorEndpoints {
     }
 
     private static async Task<IResult> GetBestAuthors(int limit, IAuthorRepository authorRepository) {
-        var authors = await authorRepository.Find_N_MostPostByAuthorAsync(limit);
+        var authors = await authorRepository.FindBestMostPostByAuthorAsync(limit);
 
         var pagedResult = new PagedList<Author>(authors, 1, limit, authors.Count);
 

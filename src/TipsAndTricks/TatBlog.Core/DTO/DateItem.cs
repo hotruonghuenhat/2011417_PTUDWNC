@@ -5,4 +5,5 @@ public class DateItem {
     public int Month { get; set; }
     public int Year { get; set; }
     public int PostCount { get; set; }
+    public string MonthName { get; set; }
 }

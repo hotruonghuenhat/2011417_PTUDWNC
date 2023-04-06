@@ -1,6 +1,9 @@
-﻿namespace TatBlog.WebApi.Models;
+﻿using TatBlog.WebApi.Models.Authors;
+using TatBlog.WebApi.Models.Tags;
 
-public class PostDetail {
+namespace TatBlog.WebApi.Models.Posts;
+public class PostDetail
+{
     public int Id { get; set; }
     public string Title { get; set; }
     public string ShortDescription { get; set; }

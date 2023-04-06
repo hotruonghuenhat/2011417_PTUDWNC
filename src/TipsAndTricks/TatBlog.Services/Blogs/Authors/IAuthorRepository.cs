@@ -2,9 +2,10 @@
 using TatBlog.Core.DTO;
 using TatBlog.Core.Entities;
 
-namespace TatBlog.Services.Blogs;
+namespace TatBlog.Services.Blogs.Authors;
 
-public interface IAuthorRepository {
+public interface IAuthorRepository
+{
     Task<Author> GetAuthorBySlugAsync(string slug, CancellationToken cancellationToken = default);
 
     Task<Author> GetCachedAuthorBySlugAsync(string slug, CancellationToken cancellationToken = default);
@@ -33,5 +34,5 @@ public interface IAuthorRepository {
 
     Task<bool> DeleteAuthorByIdAsync(int? id, CancellationToken cancellationToken = default);
 
-    Task<IList<Author>> Find_N_MostPostByAuthorAsync(int n, CancellationToken cancellationToken = default);
+    Task<IList<Author>> FindBestMostPostByAuthorAsync(int n, CancellationToken cancellationToken = default);
 }

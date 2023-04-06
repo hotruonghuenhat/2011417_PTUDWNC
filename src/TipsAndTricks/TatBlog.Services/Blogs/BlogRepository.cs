@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
 using SlugGenerator;
+using System.Globalization;
 using TatBlog.Core.Contracts;
 using TatBlog.Core.DTO;
 using TatBlog.Core.Entities;
@@ -10,9 +12,13 @@ namespace TatBlog.Services.Blogs;
 
 public class BlogRepository : IBlogRepository {
     private readonly BlogDbContext _context;
+    private readonly ITagRepository _tagRepository;
+    private readonly IMemoryCache _memoryCache;
 
-    public BlogRepository(BlogDbContext context) {
+    public BlogRepository(BlogDbContext context, IMemoryCache memoryCache, ITagRepository tagRepository) {
         _context = context;
+        _memoryCache = memoryCache;
+        _tagRepository = tagRepository;
     }
     //tìm bài viết có lượt xem nhiều, phố biến
     public async Task<IList<Post>> GetPopularArticleAsync(int numPosts, CancellationToken cancellationToken = default) {
@@ -22,6 +28,53 @@ public class BlogRepository : IBlogRepository {
             .OrderByDescending(p => p.ViewCount)
             .Take(numPosts)
             .ToListAsync(cancellationToken);
+    }
+
+    public async Task<IList<Post>> GetPopularArticlesAsync(int limit, CancellationToken cancellationToken = default) {
+        return await _context.Set<Post>()
+                                 .Include(x => x.Author)
+                                 .Include(x => x.Category)
+                                 .OrderByDescending(p => p.ViewCount)
+                                 .Take(limit)
+                                 .ToListAsync(cancellationToken);
+    }
+
+    public async Task<IList<Post>> GetRandomPostAsync(int limit, CancellationToken cancellationToken = default) {
+        return await _context.Set<Post>().OrderBy(p => Guid.NewGuid()).Take(limit).ToListAsync(cancellationToken);
+    }
+
+    public async Task<IList<DateItem>> GetArchivesPostAsync(int limit, CancellationToken cancellationToken = default) {
+        var lastestMonths = await GetLatestMonthList(limit);
+
+        return await Task.FromResult(_context.Set<Post>().AsEnumerable()
+                                                            .GroupBy(p => new {
+                                                                p.PostedDate.Month,
+                                                                p.PostedDate.Year
+                                                            })
+                                                            .Join(lastestMonths, d => d.Key.Month, m => m.Month,
+                                                            (postDate, monthGet) => new DateItem {
+                                                                Month = postDate.Key.Month,
+                                                                MonthName = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(postDate.Key.Month),
+                                                                Year = postDate.Key.Year,
+                                                                PostCount = postDate.Count()
+                                                            }).ToList());
+    }
+
+    public async Task<Post> GetCachedPostByIdAsync(int id, bool published = false, CancellationToken cancellationToken = default) {
+        return await _memoryCache.GetOrCreateAsync(
+            $"post.by-id.{id}-{published}",
+            async (entry) => {
+                entry.AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(30);
+                return await GetPostByIdAsync(id, published, cancellationToken);
+            });
+    }
+
+    public async Task<IList<DateItem>> GetLatestMonthList(int limit) {
+        return await Task.FromResult((from r in Enumerable.Range(1, 12) select DateTime.Now.AddMonths(limit - r))
+                            .Select(x => new DateItem {
+                                Month = x.Month,
+                                Year = x.Year
+                            }).ToList());
     }
 
     public async Task<IList<AuthorItem>> GetAuthorsMostPost(int number, CancellationToken cancellationToken = default) {
@@ -142,9 +195,9 @@ public class BlogRepository : IBlogRepository {
             categories = categories.Where(x => x.ShowOnMenu);
         }
 
-        if (!string.IsNullOrWhiteSpace(condition.KeyWord)) {
-            categories = categories.Where(x => x.Name.Contains(condition.KeyWord) ||
-                                     x.Description.Contains(condition.KeyWord));
+        if (!string.IsNullOrWhiteSpace(condition.Keyword)) {
+            categories = categories.Where(x => x.Name.Contains(condition.Keyword) ||
+                                     x.Description.Contains(condition.Keyword));
         }
         return categories;
     }
@@ -280,9 +333,43 @@ public class BlogRepository : IBlogRepository {
         return await _context.Set<Post>().FindAsync(id, cancellationToken);
     }
 
-    public async Task<bool> AddOrUpdatePostAsync(Post post, CancellationToken cancellationToken = default) {
-        _context.Entry(post).State = post.Id == 0 ? EntityState.Added : EntityState.Modified;
-        return await _context.SaveChangesAsync(cancellationToken) > 0;
+    public async Task<bool> AddOrUpdatePostAsync(Post post, IEnumerable<string> tags, CancellationToken cancellationToken = default) {
+        if (post.Id > 0) {
+            await _context.Entry(post).Collection(x => x.Tags).LoadAsync(cancellationToken);
+        }
+        else {
+            post.Tags = new List<Tag>();
+        }
+
+        var validTags = tags.Where(x => !string.IsNullOrWhiteSpace(x))
+          .Select(x => new {
+              Name = x,
+              Slug = x.GenerateSlug()
+          })
+          .GroupBy(x => x.Slug)
+          .ToDictionary(g => g.Key, g => g.First().Name);
+
+        foreach (var kv in validTags) {
+            if (post.Tags.Any(x => string.Compare(x.UrlSlug, kv.Key, StringComparison.InvariantCultureIgnoreCase) == 0)) continue;
+
+            var tag = await _tagRepository.GetTagBySlugAsync(kv.Key, cancellationToken) ?? new Tag() {
+                Name = kv.Value,
+                Description = kv.Value,
+                UrlSlug = kv.Key
+            };
+
+            post.Tags.Add(tag);
+        }
+
+        post.Tags = post.Tags.Where(t => validTags.ContainsKey(t.UrlSlug)).ToList();
+
+        if (post.Id > 0)
+            _context.Update(post);
+        else
+            _context.Add(post);
+
+        var result = await _context.SaveChangesAsync(cancellationToken);
+        return result > 0;
     }
 
     public async Task ChangeStatusPublishedOfPostAsync(int id, CancellationToken cancellationToken = default) {
