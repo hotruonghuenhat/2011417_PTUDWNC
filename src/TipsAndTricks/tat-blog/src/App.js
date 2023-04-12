@@ -1,42 +1,48 @@
-import './App.css'
-import Navbar from './components/Navbar'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Sidebar from './components/Sidebar'
-import Footer from './components/Footer'
-import Index from './pages/Index'
-import Layout from './pages/Layout'
-import Contact from './pages/Contact'
-import About from './pages/About'
-import Rss from './pages/Rss'
+import Navbar from './Components/Navbar'
+import Sidebar from './Components/Sidebar';
+import Footer from './Components/Footer';
+import Index from './Pages/Index';
+
+
+import Contact from './Pages/Contact'
+import About from './Pages/About'
+import Rss from './Pages/Rss'
+import './App.css';
+import React from 'react';
+import {
+   BrowserRouter as Router,
+   Routes,
+   Route
+ } from 'react-router-dom';
+
+
 
 function App() {
   return (
     <div>
-      <BrowserRouter>
+      <Router>
         <Navbar />
         <div className='container-fluid'>
           <div className='row'>
-            <div className='col-9'>
-              <Routes>
-                <Route path='/' element={<Layout />}>
-                  <Route path='/' element={<Index />} />
-                  <Route path='blog' element={<Index />} />
-                  <Route path='blog/contact' element={<Contact />} />
-                  <Route path='blog/About' element={<About />} />
-                  <Route path='blog/Rss' element={<Rss />} />
-                </Route>
-              </Routes>
-            </div>
-
-            <div className='col-3 border-start'>
-              <Sidebar />
-            </div>
+              <div className='col-9'>
+                 <Routes>                  
+                    <Route path='/' element={<Index/>}></Route>
+                    <Route path='/blog' element={<Index/>}></Route>
+                    <Route path='/blog/Contact' element={<Contact/>}></Route>
+                    <Route path='/blog/About' element={<About/>}></Route>
+                    <Route path='/blog/Rss' element={<Rss/>}></Route>
+                 </Routes>
+              </div>
+              <div className='col-3 border-start'>
+                <Sidebar/>
+              </div>
           </div>
         </div>
-        <Footer />
-      </BrowserRouter>
+        <Footer/>
+      </Router>
     </div>
-  )
+  );
 }
 
-export default App
+
+export default App;

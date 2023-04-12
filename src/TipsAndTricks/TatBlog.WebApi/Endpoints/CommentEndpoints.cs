@@ -46,6 +46,13 @@ public static class CommentEndpoints {
         return app;
     }
 
+
+    private static async Task<IResult> AddComment(CommentEditModel model, ICommentRepository commentRepository, IMapper mapper) {
+        var comment = mapper.Map<Comment>(model);
+        await commentRepository.AddCommentAsync(comment);
+
+        return Results.CreatedAtRoute("GetCommentById", new { comment.Id }, mapper.Map<Comment>(comment));
+    }
     private static async Task<IResult> GetComments([AsParameters] CommentFilterModel model, ICommentRepository commentRepository, IMapper mapper) {
         var commentQuery = mapper.Map<CommentQuery>(model);
         var commentList = await commentRepository.GetCommentByQueryAsync(commentQuery, model);
@@ -62,21 +69,14 @@ public static class CommentEndpoints {
 
         return Results.Ok(paginationResult);
     }
+    private static async Task<IResult> ChangeCommentStatus(int id, ICommentRepository commentRepository) {
+        await commentRepository.ChangeCommentStatusAsync(id);
 
-    private static async Task<IResult> AddComment(CommentEditModel model, ICommentRepository commentRepository, IMapper mapper) {
-        var comment = mapper.Map<Comment>(model);
-        await commentRepository.AddCommentAsync(comment);
-
-        return Results.CreatedAtRoute("GetCommentById", new { comment.Id }, mapper.Map<Comment>(comment));
+        return Results.NoContent();
     }
 
     private static async Task<IResult> DeleteComment(int id, ICommentRepository commentRepository) {
         return await commentRepository.DeleteCommentByIdAsync(id) ? Results.NoContent() : Results.NotFound($"Could not find comment with id = {id}");
     }
 
-    private static async Task<IResult> ChangeCommentStatus(int id, ICommentRepository commentRepository) {
-        await commentRepository.ChangeCommentStatusAsync(id);
-
-        return Results.NoContent();
-    }
 }

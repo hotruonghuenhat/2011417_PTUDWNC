@@ -1,48 +1,49 @@
-import TagList from './TagList'
-import Card from 'react-bootstrap/Card'
-import { Link } from 'react-router-dom'
-import { isEmptyOrSpaces } from '../utils/Utils'
+import React from "react";
+import { isEmtyOrSpaces } from "../Utils/Utils";
+import { Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import TagList from "./TagList";
 
-const PostItem = ({ post }) => {
-  let imageUrl = isEmptyOrSpaces(post.imageUrl)
-    ? process.env.PUBLIC_URL + '/images/img1.jpg'
-    : `${post.imageUrl}`
-
-  let postedDate = new Date(post.postedDate)
+const PostList = ({ postItem }) => {
+  let imageUrl = isEmtyOrSpaces(postItem.imageUrl)
+    ? process.env.PUBLIC_URL + "/images/image_1.png"
+    : `${postItem.imageUrl}`;
+  let postedDate = new Date(postItem.postedDate);
 
   return (
-    <article className='blog-entry mb-4'>
+    <article  className="blog-entry mb-4">
       <Card>
-        <div className='row g-0'>
-          <div className='col-md-4'>
-            <Card.Img variant='top' src={imageUrl} alt={post.title} />
+        <div className="row g-0">
+          <div className="col-md-4">
+            <Card.Img variant="top" src={imageUrl} alt={postItem.title} />
           </div>
 
-          <div className='col-md-8'>
+          <div className="col-md-8">
             <Card.Body>
-              <Card.Title>{post.title}</Card.Title>
-
+              <Card.Title>{postItem.title}</Card.Title>
               <Card.Text>
-                <small className='text-text-muted'>Tác giả: </small>
-                <span className='text-primary m-1'>{post.author.fullname}</span>
-
-                <small className='text-text-muted'>Chủ đề: </small>
-                <span className='text-primary m-1'>{post.category.name}</span>
+                <small className="text-muted">Tác giả :</small>
+                <span className="text-primary m-1">
+                  {postItem.authorName} 
+                </span>
+                <small className="text-muted">Chủ đề :</small>
+                <span className="text-primary m-1">
+                  {postItem.authorName}
+                </span>
               </Card.Text>
-
-              <Card.Text>{post.shortDescription}</Card.Text>
-
-              <div className='tag-list'>
-                <TagList tagList={post.tags} />
+              <Card.Text>{postItem.shortDescription}</Card.Text>
+              <div className="tag-list">
+                <TagList tagList={postItem.tags} />
               </div>
-
-              <div className='text-end'>
+              <div className="text-end">
                 <Link
-                  to={`/blog/post?year=${postedDate.getFullYear()}&month=${postedDate.getMonth()}&day=${postedDate.getDay()}&slug=${
-                    post.urlSlug
-                  }`}
-                  className='btn btn-primary'
-                  title={post.title}
+                  to={`/blog/post
+                            ?year=${postedDate.getFullYear()}
+                            &month=${postedDate.getMonth()}
+                            &day=${postedDate.getDay()}
+                            &slug=${postItem.urlSlug}`}
+                  className="btn btn-primary"
+                  title={postItem.Title}
                 >
                   Xem chi tiết
                 </Link>
@@ -52,7 +53,10 @@ const PostItem = ({ post }) => {
         </div>
       </Card>
     </article>
-  )
-}
+  );
+};
 
-export default PostItem
+
+
+
+export default PostList

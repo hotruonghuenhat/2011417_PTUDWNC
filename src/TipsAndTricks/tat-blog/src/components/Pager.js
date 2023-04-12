@@ -1,46 +1,62 @@
-import { Link } from 'react-router-dom'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'
-import { Button } from 'react-bootstrap'
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Button } from "react-bootstrap";
+import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import React from "react";
 
-export default function Pager({ postQuery, metadata }) {
-  const { keyword } = postQuery || ''
-  const { pageCount, hasNextPage, hasPreviousPage, pageNumber, pageSize } = metadata
 
-  return (
-    <>
-      {pageCount > 1 ? (
-        <div className='my-4 text-center'>
-          {hasPreviousPage ? (
-            <Link
-              to={`/blog/?Keyword=${keyword}&PageNumber=${pageNumber - 1}&PageSize=${pageSize}`}
-              className='btn btn-info'
-            >
-              <FontAwesomeIcon icon={faArrowLeft} />
-              &nbsp;Trang trước
-            </Link>
-          ) : (
-            <Button variant='outline-secondary' disabled>
-              <FontAwesomeIcon icon={faArrowLeft} />
-              &nbsp;Trang trước
-            </Button>
-          )}
+
+const Pager = ({ postquery, metadata }) => {
+  let pageCount = metadata.pageCount,
+    hasNextPage = metadata.hasNextPage,
+    hasPreviousPage = metadata.hasPreviousPage,
+    pageNumber = metadata.pageNumber,
+    pageSize = metadata.pageSize,
+    actionName = '',
+    slug = '',
+    keyword = postquery.keyword ?? '';
+  if (pageCount > 1) {
+    return (
+      <div className="text-center my-4">
+        {hasPreviousPage ? (
+          <Link
+            to={`/Blog/${String(actionName)}?slug=${String(slug)}&k=${String(keyword)}&p=${Number(pageNumber - 1)}&ps=${Number(pageSize)}`}
+            className="btn btn-info"
+          >
+            <FontAwesomeIcon icon={faArrowLeft} />
+            &nbsp;Trang Trước
+          </Link>
+        ) : (
+          <Button variant="outline-secondary" disabled>
+            <FontAwesomeIcon icon={faArrowLeft} />
+            &nbsp;Trang Trước
+          </Button>
+        )}
           {hasNextPage ? (
-            <Link
-              to={`/blog/?Keyword=${keyword}&PageNumber=${pageNumber + 1}&PageSize=${pageSize}`}
-              className='btn btn-info ms-1'
-            >
-              Trang sau&nbsp;
-              <FontAwesomeIcon icon={faArrowRight} />
-            </Link>
-          ) : (
-            <Button variant='outline-secondary' className='ms-1' disabled>
-              Trang sau&nbsp;
-              <FontAwesomeIcon icon={faArrowRight} />
-            </Button>
-          )}
-        </div>
-      ) : null}
-    </>
+          <Link
+            to={`/Blog/${String(actionName)}?slug=${String(slug)}&k=${String(keyword)}&p=${Number(pageNumber + 1)}&ps=${Number(pageSize)}`}
+            className="btn btn-info"
+          >
+            <FontAwesomeIcon icon={faArrowRight} />
+           Trang sau&nbsp;
+          </Link>
+        ) : (
+          <Button variant="outline-secondary" className="ms-1" disabled>
+            <FontAwesomeIcon icon={faArrowRight} />
+           Trang sau&nbsp;
+          </Button>
+        )}
+      </div>
+    );
+  }
+  return(
+    
+    <Link to={'/'}>
+  </Link>   
   )
-}
+};
+
+
+
+
+export default Pager;

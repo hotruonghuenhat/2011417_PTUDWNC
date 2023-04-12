@@ -17,6 +17,20 @@ public class CategoryRepository : ICategoryRepository {
         _memoryCache = memoryCache;
     }
 
+
+    public async Task<Category> GetCachedCategoryBySlugAsync(string slug, CancellationToken cancellationToken = default) {
+        return await _memoryCache.GetOrCreateAsync(
+            $"category.by-slug.{slug}",
+            async (entry) => {
+                entry.AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(30);
+                return await GetCategoryBySlugAsync(slug, cancellationToken);
+            });
+    }
+
+    public async Task<Category> GetCategoryByIdAsync(int id, CancellationToken cancellationToken = default) {
+        return await _context.Set<Category>().FindAsync(id);
+    }
+
     public async Task<IList<CategoryItem>> GetCategoriesAsync(bool showOnMenu = false, CancellationToken cancellationToken = default) {
         IQueryable<Category> categories = _context.Set<Category>().AsNoTracking();
 
@@ -40,20 +54,6 @@ public class CategoryRepository : ICategoryRepository {
                                 .Where(c => c.UrlSlug.Equals(slug))
                                 .FirstOrDefaultAsync(cancellationToken);
     }
-
-    public async Task<Category> GetCachedCategoryBySlugAsync(string slug, CancellationToken cancellationToken = default) {
-        return await _memoryCache.GetOrCreateAsync(
-            $"category.by-slug.{slug}",
-            async (entry) => {
-                entry.AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(30);
-                return await GetCategoryBySlugAsync(slug, cancellationToken);
-            });
-    }
-
-    public async Task<Category> GetCategoryByIdAsync(int id, CancellationToken cancellationToken = default) {
-        return await _context.Set<Category>().FindAsync(id);
-    }
-
     public async Task<Category> GetCachedCategoryByIdAsync(int categoryId) {
         return await _memoryCache.GetOrCreateAsync(
             $"category.by-id.{categoryId}",

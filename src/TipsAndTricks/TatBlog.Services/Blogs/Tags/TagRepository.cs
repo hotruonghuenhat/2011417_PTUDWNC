@@ -64,26 +64,6 @@ public class TagRepository : ITagRepository {
                                 cancellationToken);
     }
 
-    public async Task<IPagedList<Tag>> GetTagByQueryAsync(TagQuery query, IPagingParams pagingParams, CancellationToken cancellationToken = default) {
-        return await FilterTags(query).ToPagedListAsync(pagingParams, cancellationToken);
-    }
-
-    public async Task<IPagedList<T>> GetTagByQueryAsync<T>(TagQuery query, IPagingParams pagingParams, Func<IQueryable<Tag>, IQueryable<T>> mapper, CancellationToken cancellationToken = default) {
-        IQueryable<T> result = mapper(FilterTags(query));
-
-        return await result.ToPagedListAsync(pagingParams, cancellationToken);
-    }
-
-    public async Task<IList<TagItem>> GetTagListWithPostCountAsync(CancellationToken cancellationToken = default) {
-        return await _context.Set<Tag>()
-                                  .Select(x => new TagItem() {
-                                      Id = x.Id,
-                                      Name = x.Name,
-                                      UrlSlug = x.UrlSlug,
-                                      Description = x.Description,
-                                      PostCount = x.Posts.Count()
-                                  }).ToListAsync(cancellationToken);
-    }
 
     public async Task<bool> AddOrUpdateTagAsync(Tag tag, CancellationToken cancellationToken = default) {
         if (tag.Id > 0)
@@ -133,5 +113,25 @@ public class TagRepository : ITagRepository {
         }
 
         return categoryQuery;
+    }
+    public async Task<IPagedList<Tag>> GetTagByQueryAsync(TagQuery query, IPagingParams pagingParams, CancellationToken cancellationToken = default) {
+        return await FilterTags(query).ToPagedListAsync(pagingParams, cancellationToken);
+    }
+
+    public async Task<IPagedList<T>> GetTagByQueryAsync<T>(TagQuery query, IPagingParams pagingParams, Func<IQueryable<Tag>, IQueryable<T>> mapper, CancellationToken cancellationToken = default) {
+        IQueryable<T> result = mapper(FilterTags(query));
+
+        return await result.ToPagedListAsync(pagingParams, cancellationToken);
+    }
+
+    public async Task<IList<TagItem>> GetTagListWithPostCountAsync(CancellationToken cancellationToken = default) {
+        return await _context.Set<Tag>()
+                                  .Select(x => new TagItem() {
+                                      Id = x.Id,
+                                      Name = x.Name,
+                                      UrlSlug = x.UrlSlug,
+                                      Description = x.Description,
+                                      PostCount = x.Posts.Count()
+                                  }).ToListAsync(cancellationToken);
     }
 }

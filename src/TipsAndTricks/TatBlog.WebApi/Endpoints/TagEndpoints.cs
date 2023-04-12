@@ -67,6 +67,18 @@ public static class TagEndpoints {
         return tag == null ? Results.NotFound($"Không tìm thấy thẻ có mã số {id}") : Results.Ok(mapper.Map<TagItem>(tag));
     }
 
+
+    private static async Task<IResult> UpdateTag(int id, TagEditModel model, ITagRepository tagRepository, IMapper mapper) {
+        if (await tagRepository.CheckTagSlugExisted(id, model.UrlSlug)) {
+            return Results.Conflict($"Slug '{model.UrlSlug}' đã được sử dụng");
+        }
+
+        var tag = mapper.Map<Tag>(model);
+        tag.Id = id;
+
+        return await tagRepository.AddOrUpdateTagAsync(tag) ? Results.NoContent() : Results.NotFound();
+    }
+
     private static async Task<IResult> GetPostByTagSlug([FromRoute] string slug, [AsParameters] PagingModel pagingModel, IBlogRepository blogRepository) {
         var postQuery = new PostQuery {
             TagSlug = slug,
@@ -90,18 +102,6 @@ public static class TagEndpoints {
 
         return Results.CreatedAtRoute("GetTagById", new { tag.Id }, mapper.Map<TagItem>(tag));
     }
-
-    private static async Task<IResult> UpdateTag(int id, TagEditModel model, ITagRepository tagRepository, IMapper mapper) {
-        if (await tagRepository.CheckTagSlugExisted(id, model.UrlSlug)) {
-            return Results.Conflict($"Slug '{model.UrlSlug}' đã được sử dụng");
-        }
-
-        var tag = mapper.Map<Tag>(model);
-        tag.Id = id;
-
-        return await tagRepository.AddOrUpdateTagAsync(tag) ? Results.NoContent() : Results.NotFound();
-    }
-
     private static async Task<IResult> DeleteTag(int id, ITagRepository tagRepository) {
         return await tagRepository.DeleteTagByIdAsync(id) ? Results.NoContent() : Results.NotFound($"Could not find tag with id = {id}");
     }

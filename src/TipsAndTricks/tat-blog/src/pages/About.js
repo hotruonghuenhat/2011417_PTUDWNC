@@ -1,18 +1,15 @@
-import React, { useEffect } from "react";
-import PropTypes from "prop-types";
+import React ,{useEffect} from "react";
 
-About.propTypes = {};
-
-function About(props) {
-  useEffect(() => {
-    document.title = "Trang gioi thiệu";
-  });
-
-  return (
-    <div>
-      <h1>Đây là trang gioi thiệu</h1>
-    </div>
-  );
+const About=()=>{
+    useEffect(()=>{
+        document.title="About"
+    },[]);
+    return (
+        <div>
+            <h1 className="text-center">Trường đại học Đà Lạt đẹp nhất Việt Nam</h1>
+            
+            <iframe className='w-100' width="1920" height="1080" src="https://www.youtube.com/embed/lH2tAdLt5NU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>        
+        </div>       
+    )
 }
-
-export default About;
+export default About

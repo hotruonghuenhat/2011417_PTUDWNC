@@ -25,18 +25,6 @@ public class SubscriberRepository : ISubscriberRepository {
                                  .FirstOrDefaultAsync(cancellationToken);
     }
 
-    public async Task<Subscriber> GetCachedSubscriberByEmailAsync(string email, CancellationToken cancellationToken = default) {
-        return await _memoryCache.GetOrCreateAsync(
-            $"subscriber.by-email.{email}",
-            async (entry) => {
-                entry.AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(30);
-                return await GetSubscriberByEmailAsync(email, cancellationToken);
-            });
-    }
-
-    public async Task<Subscriber> GetSubscriberByIdAsync(int id, CancellationToken cancellationToken = default) {
-        return await _context.Set<Subscriber>().FindAsync(id, cancellationToken);
-    }
 
     public async Task<Subscriber> GetCachedSubscriberByIdAsync(int id, CancellationToken cancellationToken = default) {
         return await _memoryCache.GetOrCreateAsync(
@@ -60,6 +48,18 @@ public class SubscriberRepository : ISubscriberRepository {
         return await FilterSubscribers(query).ToPagedListAsync(pagingParams, cancellationToken);
     }
 
+    public async Task<Subscriber> GetCachedSubscriberByEmailAsync(string email, CancellationToken cancellationToken = default) {
+        return await _memoryCache.GetOrCreateAsync(
+            $"subscriber.by-email.{email}",
+            async (entry) => {
+                entry.AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(30);
+                return await GetSubscriberByEmailAsync(email, cancellationToken);
+            });
+    }
+
+    public async Task<Subscriber> GetSubscriberByIdAsync(int id, CancellationToken cancellationToken = default) {
+        return await _context.Set<Subscriber>().FindAsync(id, cancellationToken);
+    }
     public async Task<IPagedList<T>> GetSubscriberByQueryAsync<T>(SubscriberQuery query, IPagingParams pagingParams, Func<IQueryable<Subscriber>, IQueryable<T>> mapper, CancellationToken cancellationToken = default) {
         IQueryable<T> result = mapper(FilterSubscribers(query));
 

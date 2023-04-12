@@ -1,18 +1,14 @@
-import React, { useEffect } from "react";
-import PropTypes from "prop-types";
+import React,{useEffect} from "react";
 
-Rss.propTypes = {};
 
-function Rss(props) {
-  useEffect(() => {
-    document.title = "Trang RSS";
-  });
-
-  return (
-    <div>
-      <h1>Đây là trang RSS</h1>
-    </div>
-  );
+const Rss=()=>{
+    useEffect(()=>{
+        document.title="RSS Feed"
+    },[]);
+    return (
+        <h1>Đây là trang RSS</h1>
+    )
 }
 
-export default Rss;
+
+export default Rss

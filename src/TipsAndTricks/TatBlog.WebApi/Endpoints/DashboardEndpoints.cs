@@ -38,12 +38,23 @@ public static class DashboardEndpoints {
         return app;
     }
 
+    private static async Task<IResult> GetTotalOfSubscriber(IDashboardRepository dashboardRepository) {
+        var totalSubscriber = await dashboardRepository.GetTotalOfSubscriberAsync();
+
+        return Results.Ok(totalSubscriber);
+    }
     private static async Task<IResult> GetTotalOfPosts(IDashboardRepository dashboardRepository) {
         var totalPost = await dashboardRepository.GetTotalOfPostsAsync();
 
         return Results.Ok(totalPost);
     }
 
+
+    private static async Task<IResult> GetTotalOfWaitingComment(IDashboardRepository dashboardRepository) {
+        var total = await dashboardRepository.GetTotalOfWaitingCommentAsync();
+
+        return Results.Ok(total);
+    }
     private static async Task<IResult> GetTotalOfUnpublishedPosts(IDashboardRepository dashboardRepository) {
         var totalPost = await dashboardRepository.GetTotalOfUnpublishedPostsAsync();
 
@@ -62,17 +73,7 @@ public static class DashboardEndpoints {
         return Results.Ok(totalAuthor);
     }
 
-    private static async Task<IResult> GetTotalOfWaitingComment(IDashboardRepository dashboardRepository) {
-        var total = await dashboardRepository.GetTotalOfWaitingCommentAsync();
 
-        return Results.Ok(total);
-    }
-
-    private static async Task<IResult> GetTotalOfSubscriber(IDashboardRepository dashboardRepository) {
-        var totalSubscriber = await dashboardRepository.GetTotalOfSubscriberAsync();
-
-        return Results.Ok(totalSubscriber);
-    }
 
     private static async Task<IResult> GetTotalOfNewestSubscriberInDay(IDashboardRepository dashboardRepository) {
         var total = await dashboardRepository.GetTotalOfNewestSubscriberInDayAsync();

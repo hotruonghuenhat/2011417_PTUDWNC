@@ -14,6 +14,10 @@ public class CommentRepository : ICommentRepository {
         _context = dbContext;
     }
 
+
+    public async Task<IPagedList<Comment>> GetCommentByQueryAsync(CommentQuery query, IPagingParams pagingParams, CancellationToken cancellationToken = default) {
+        return await FilterComments(query).ToPagedListAsync(pagingParams, cancellationToken);
+    }
     public async Task<IPagedList<Comment>> GetCommentByPostIdAsync(int postId, int pageNumber = 1, int pageSize = 10, CancellationToken cancellationToken = default) {
         var commentQuery = _context.Set<Comment>()
                                        .Where(c => c.PostID.Equals(postId));
@@ -34,10 +38,6 @@ public class CommentRepository : ICommentRepository {
                                           nameof(Comment.PostDate),
                                           "DESC",
                                           cancellationToken);
-    }
-
-    public async Task<IPagedList<Comment>> GetCommentByQueryAsync(CommentQuery query, IPagingParams pagingParams, CancellationToken cancellationToken = default) {
-        return await FilterComments(query).ToPagedListAsync(pagingParams, cancellationToken);
     }
 
     public async Task<IPagedList<T>> GetCommentByQueryAsync<T>(CommentQuery query, IPagingParams pagingParams, Func<IQueryable<Comment>, IQueryable<T>> mapper, CancellationToken cancellationToken = default) {

@@ -75,6 +75,17 @@ public static class PostEndpoints {
         return app;
     }
 
+
+    private static async Task<IResult> GetArchivesPost(int limit, IBlogRepository blogRepository) {
+        var postDate = await blogRepository.GetArchivesPostAsync(limit);
+
+        return Results.Ok(postDate);
+    }
+    private static async Task<IResult> GetFeaturedPost(int limit, IBlogRepository blogRepository) {
+        var posts = await blogRepository.GetPopularArticlesAsync(limit);
+
+        return Results.Ok(posts);
+    }
     private static async Task<IResult> GetPosts([AsParameters] PostFilterModel model, IBlogRepository blogRepository, IMapper mapper) {
         var postQuery = mapper.Map<PostQuery>(model);
         var postList = await blogRepository.GetPostByQueryAsync(postQuery, model, post => post.ProjectToType<PostItem>());
@@ -84,11 +95,6 @@ public static class PostEndpoints {
         return Results.Ok(paginationResult);
     }
 
-    private static async Task<IResult> GetFeaturedPost(int limit, IBlogRepository blogRepository) {
-        var posts = await blogRepository.GetPopularArticlesAsync(limit);
-
-        return Results.Ok(posts);
-    }
 
     private static async Task<IResult> GetRandomPost(int limit, IBlogRepository blogRepository) {
         var posts = await blogRepository.GetRandomPostAsync(limit);
@@ -96,29 +102,10 @@ public static class PostEndpoints {
         return Results.Ok(posts);
     }
 
-    private static async Task<IResult> GetArchivesPost(int limit, IBlogRepository blogRepository) {
-        var postDate = await blogRepository.GetArchivesPostAsync(limit);
-
-        return Results.Ok(postDate);
-    }
-
     private static async Task<IResult> GetPostDetails(int id, IBlogRepository blogRepository, IMapper mapper) {
         var post = await blogRepository.GetCachedPostByIdAsync(id);
 
         return post == null ? Results.NotFound($"Không tìm thấy bài có mã số {id}") : Results.Ok(mapper.Map<PostItem>(post));
-    }
-
-    private static async Task<IResult> GetPostBySlug([FromRoute] string slug, [AsParameters] PagingModel pagingModel, IBlogRepository blogRepository) {
-        var postQuery = new PostQuery {
-            PostSlug = slug,
-            PublishedOnly = true
-        };
-
-        var postsList = await blogRepository.GetPostByQueryAsync(postQuery, pagingModel, posts => posts.ProjectToType<PostDto>());
-
-        var post = postsList.FirstOrDefault();
-
-        return post == null ? Results.NotFound($"Không tìm thấy bài có slug {slug}") : Results.Ok(post);
     }
 
     private static async Task<IResult> AddPost(PostEditModel model, IBlogRepository blogRepository, IMapper mapper) {
@@ -146,6 +133,27 @@ public static class PostEndpoints {
     private static async Task<IResult> DeletePost(int id, IBlogRepository blogRepository) {
         return await blogRepository.DeletePostByIdAsync(id) ? Results.NoContent() : Results.NotFound($"Could not find post with id = {id}");
     }
+    private static async Task<IResult> GetPostBySlug([FromRoute] string slug, [AsParameters] PagingModel pagingModel, IBlogRepository blogRepository) {
+        var postQuery = new PostQuery {
+            PostSlug = slug,
+            PublishedOnly = true
+        };
+
+        var postsList = await blogRepository.GetPostByQueryAsync(postQuery, pagingModel, posts => posts.ProjectToType<PostDto>());
+
+        var post = postsList.FirstOrDefault();
+
+        return post == null ? Results.NotFound($"Không tìm thấy bài có slug {slug}") : Results.Ok(post);
+    }
+
+
+    private static async Task<IResult> GetCommentOfPost(int id, ICommentRepository commentRepository) {
+        var comments = await commentRepository.GetCommentByPostIdAsync(id);
+
+        var paginationResult = new PaginationResult<Comment>(comments);
+
+        return Results.Ok(paginationResult);
+    }
 
     private static async Task<IResult> SetPostPicture(int id, IFormFile imageFile, IBlogRepository blogRepository, IMediaManager mediaManager) {
         var post = await blogRepository.GetCachedPostByIdAsync(id);
@@ -166,13 +174,5 @@ public static class PostEndpoints {
         }
 
         return await blogRepository.AddOrUpdatePostAsync(post, new string[] { }) ? Results.Ok(newImagePath) : Results.NotFound();
-    }
-
-    private static async Task<IResult> GetCommentOfPost(int id, ICommentRepository commentRepository) {
-        var comments = await commentRepository.GetCommentByPostIdAsync(id);
-
-        var paginationResult = new PaginationResult<Comment>(comments);
-
-        return Results.Ok(paginationResult);
     }
 }

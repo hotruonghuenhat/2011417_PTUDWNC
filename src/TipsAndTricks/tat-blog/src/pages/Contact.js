@@ -1,18 +1,14 @@
-import React, { useEffect } from "react";
-import PropTypes from "prop-types";
+import React ,{useEffect} from "react";
 
-Contact.propTypes = {};
-
-function Contact(props) {
-  useEffect(() => {
-    document.title = "Trang lien hệ";
-  });
-
-  return (
-    <div>
-      <h1>Đây là trang lien hệ</h1>
-    </div>
-  );
+const Contact=()=>{
+    useEffect(()=>{
+        document.title="Contact"
+    },[]);
+    return (
+        <div>
+            <h1 className="text-center">Liên hệ Trường đại học Đà Lạt</h1>           
+        </div>       
+    )
 }
 
-export default Contact;
+export default Contact

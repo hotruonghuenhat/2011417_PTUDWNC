@@ -54,14 +54,7 @@ public static class SubscriberEndpoints {
         return app;
     }
 
-    private static async Task<IResult> GetSubscribers([AsParameters] SubscriberFilterModel model, ISubscriberRepository subscriberRepository, IMapper mapper) {
-        var subscriberQuery = mapper.Map<SubscriberQuery>(model);
-        var subscriberList = await subscriberRepository.GetSubscriberByQueryAsync(subscriberQuery, model);
-
-        var paginationResult = new PaginationResult<Subscriber>(subscriberList);
-
-        return Results.Ok(paginationResult);
-    }
+    
 
     private static async Task<IResult> GetSubscriberDetails(int id, ISubscriberRepository subscriberRepository) {
         var subscriber = await subscriberRepository.GetCachedSubscriberByIdAsync(id);
@@ -69,6 +62,14 @@ public static class SubscriberEndpoints {
         return subscriber == null ? Results.NotFound($"Không tìm thấy người đăng kí có mã số {id}") : Results.Ok(subscriber);
     }
 
+
+    private static async Task<IResult> Unsubscribe(string email, ISubscriberRepository subscriberRepository) {
+        var subscription = await subscriberRepository.UnsubscribeAsync(email, "Không có nhu cầu nữa", true);
+        if (!subscription)
+            return Results.Conflict($"Đã xảy ra lỗi khi huỷ đăng ký cho email {email}!");
+
+        return Results.NoContent();
+    }
     private static async Task<IResult> GetSubscriberByEmailDetails(string email, ISubscriberRepository subscriberRepository) {
         var subscriber = await subscriberRepository.GetCachedSubscriberByEmailAsync(email);
 
@@ -84,22 +85,22 @@ public static class SubscriberEndpoints {
         return Results.NoContent();
     }
 
-    private static async Task<IResult> Unsubscribe(string email, ISubscriberRepository subscriberRepository) {
-        var subscription = await subscriberRepository.UnsubscribeAsync(email, "Không có nhu cầu nữa", true);
-        if (!subscription)
-            return Results.Conflict($"Đã xảy ra lỗi khi huỷ đăng ký cho email {email}!");
-
-        return Results.NoContent();
-    }
-
-    private static async Task<IResult> DeleteSubscriber(int id, ISubscriberRepository subscriberRepository) {
-        return await subscriberRepository.DeleteSubscriberAsync(Convert.ToInt32(id)) ? Results.NoContent() : Results.NotFound($"Could not find subscriber with id = {id}");
-    }
 
     private static async Task<IResult> BlockSubscriber(int id, SubscriberEditModel model, ISubscriberRepository subscriberRepository, IMapper mapper) {
         var subscriber = mapper.Map<Subscriber>(model);
         subscriber.Id = id;
 
         return await subscriberRepository.BlockSubscriberAsync(id, subscriber.CancelReason, subscriber.AdminNotes) ? Results.NoContent() : Results.NotFound($"Could not find subscriber with id = {id}");
+    }
+    private static async Task<IResult> DeleteSubscriber(int id, ISubscriberRepository subscriberRepository) {
+        return await subscriberRepository.DeleteSubscriberAsync(Convert.ToInt32(id)) ? Results.NoContent() : Results.NotFound($"Could not find subscriber with id = {id}");
+    }
+    private static async Task<IResult> GetSubscribers([AsParameters] SubscriberFilterModel model, ISubscriberRepository subscriberRepository, IMapper mapper) {
+        var subscriberQuery = mapper.Map<SubscriberQuery>(model);
+        var subscriberList = await subscriberRepository.GetSubscriberByQueryAsync(subscriberQuery, model);
+
+        var paginationResult = new PaginationResult<Subscriber>(subscriberList);
+
+        return Results.Ok(paginationResult);
     }
 }
