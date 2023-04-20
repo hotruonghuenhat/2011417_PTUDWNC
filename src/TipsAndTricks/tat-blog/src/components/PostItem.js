@@ -1,17 +1,17 @@
-import React from "react";
-import { isEmtyOrSpaces } from "../Utils/Utils";
-import { Card } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import TagList from "./TagList";
+import React from 'react';
+import { isEmtyOrSpaces } from '../Utils/Utils';
+import { Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import TagList from './TagList';
 
 const PostList = ({ postItem }) => {
   let imageUrl = isEmtyOrSpaces(postItem.imageUrl)
-    ? process.env.PUBLIC_URL + "/images/image_1.png"
+    ? process.env.PUBLIC_URL + '/images/image_1.png'
     : `${postItem.imageUrl}`;
   let postedDate = new Date(postItem.postedDate);
 
   return (
-    <article  className="blog-entry mb-4">
+    <article className="blog-entry mb-4">
       <Card>
         <div className="row g-0">
           <div className="col-md-4">
@@ -23,13 +23,9 @@ const PostList = ({ postItem }) => {
               <Card.Title>{postItem.title}</Card.Title>
               <Card.Text>
                 <small className="text-muted">Tác giả :</small>
-                <span className="text-primary m-1">
-                  {postItem.authorName} 
-                </span>
+                <span className="text-primary m-1">{postItem.authorName}</span>
                 <small className="text-muted">Chủ đề :</small>
-                <span className="text-primary m-1">
-                  {postItem.authorName}
-                </span>
+                <span className="text-primary m-1">{postItem.authorName}</span>
               </Card.Text>
               <Card.Text>{postItem.shortDescription}</Card.Text>
               <div className="tag-list">
@@ -56,7 +52,4 @@ const PostList = ({ postItem }) => {
   );
 };
 
-
-
-
-export default PostList
+export default PostList;

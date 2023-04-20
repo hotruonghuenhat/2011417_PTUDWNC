@@ -1,7 +1,6 @@
 import React from 'react';
 import { Navbar as Nb, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-
 const Navbar = () => {
   return (
     <Nb
@@ -12,7 +11,7 @@ const Navbar = () => {
       className="border-bottom shadow"
     >
       <div className="container-fluid">
-        <Nb.Brand href="/">Tip and & Trick</Nb.Brand>
+        <Nb.Brand href="/admin">Tips & Tricks</Nb.Brand>
         <Nb.Toggle aria-controls="responsive-navbar-nav" />
         <Nb.Collapse
           id="responsive-navbar-nav"
@@ -20,23 +19,28 @@ const Navbar = () => {
         >
           <Nav className="mr-auto flex-grow-1">
             <Nav.Item>
-              <Link to="/" className="nav-link text-dark">
-                Trang chủ
+              <Link to="/admin/categories" className="nav-link text-dark">
+                Chủ đề
               </Link>
             </Nav.Item>
             <Nav.Item>
-              <Link to="/blog/about" className="nav-link text-dark">
-                Giới thiệu
+              <Link to="/admin/authors" className="nav-link text-dark">
+                Tác giả
               </Link>
             </Nav.Item>
             <Nav.Item>
-              <Link to="/blog/contact" className="nav-link text-dark">
-                Liên hệ
+              <Link to="/admin/tags" className="nav-link text-dark">
+                Thẻ
               </Link>
             </Nav.Item>
             <Nav.Item>
-              <Link to="/blog/rss" className="nav-link text-dark">
-                RSS Feed
+              <Link to="/admin/posts" className="nav-link text-dark">
+                Bài viết
+              </Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Link to="/admin/comments" className="nav-link text-dark">
+                Bình luận
               </Link>
             </Nav.Item>
           </Nav>
