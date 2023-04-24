@@ -1,4 +1,6 @@
-﻿namespace TatBlog.WebApi.Models;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+
+namespace TatBlog.WebApi.Models;
 public class PostEditModel {
     public string Title { get; set; }
     public string ShortDescription { get; set; }
@@ -11,6 +13,10 @@ public class PostEditModel {
     public int AuthorId { get; set; }
     public int CategoryId { get; set; }
     public string SelectedTags { get; set; }
+
+    public IEnumerable<SelectListItem> AuthorList { get; set; }
+    public IEnumerable<SelectListItem> CategoryList { get; set; }
+
 
     // Tách chuỗi chứa các thẻ thành một mảng các chuỗi
     public List<string> GetSelectedTags() {

@@ -24,7 +24,7 @@ export function getAuthors(
 }
 
 export function getFilter() {
-  return get_api('https://localhost:7085/api/posts/get-filter');
+  return get_api('https://localhost:7091/api/posts/featured/10');
 }
 
 export function getPostsFilter(

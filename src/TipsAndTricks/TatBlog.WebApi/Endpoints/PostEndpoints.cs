@@ -2,10 +2,12 @@
 using Mapster;
 using MapsterMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using TatBlog.Core.Collections;
 using TatBlog.Core.DTO;
 using TatBlog.Core.Entities;
 using TatBlog.Services.Blogs;
+using TatBlog.Services.Blogs.Authors;
 using TatBlog.Services.Media;
 using TatBlog.WebApi.Filters;
 using TatBlog.WebApi.Models;
@@ -72,8 +74,11 @@ public static class PostEndpoints {
                          .WithName("GetCommentOfPost")
                          .Produces<PaginationResult<Comment>>();
 
+
+
         return app;
     }
+
 
 
     private static async Task<IResult> GetArchivesPost(int limit, IBlogRepository blogRepository) {

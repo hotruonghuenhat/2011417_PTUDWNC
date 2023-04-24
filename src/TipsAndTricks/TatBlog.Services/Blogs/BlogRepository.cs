@@ -60,6 +60,10 @@ public class BlogRepository : IBlogRepository {
                                                             }).ToList());
     }
 
+    public async Task<IPagedList<T>> GetPagedPostsByQueryAsync<T>(Func<IQueryable<Post>, IQueryable<T>> mapper, PostQuery query, IPagingParams pagingParams, CancellationToken cancellationToken = default) {
+        return await mapper(FilterPosts(query).AsNoTracking()).ToPagedListAsync(pagingParams, cancellationToken);
+    }
+
     public async Task<Post> GetCachedPostByIdAsync(int id, bool published = false, CancellationToken cancellationToken = default) {
         return await _memoryCache.GetOrCreateAsync(
             $"post.by-id.{id}-{published}",

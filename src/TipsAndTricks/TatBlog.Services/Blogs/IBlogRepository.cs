@@ -42,6 +42,7 @@ namespace TatBlog.Services.Blogs {
         Task<IList<Post>> GetPopularArticleAsync(int numPosts, CancellationToken cancellationToken = default);
         Task<Post> GetPostsAsync(PostQuery query, CancellationToken cancellationToken = default);
         Task<IList<Post>> GetPopularArticlesAsync(int limit, CancellationToken cancellationToken = default);
+        Task<IPagedList<T>> GetPagedPostsByQueryAsync<T>(Func<IQueryable<Post>, IQueryable<T>> mapper, PostQuery query, IPagingParams pagingParams, CancellationToken cancellationToken = default);
         Task<IList<Post>> GetRandomPostAsync(int limit, CancellationToken cancellationToken = default);
         Task<Post> GetCachedPostByIdAsync(int id, bool published = false, CancellationToken cancellationToken = default);
         Task<bool> AddOrUpdatePostAsync(Post post, IEnumerable<string> tags, CancellationToken cancellationToken = default);
